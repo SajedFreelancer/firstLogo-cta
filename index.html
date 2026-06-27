@@ -12,15 +12,52 @@
 
   
 <meta charset="UTF-8">
-<title>Clash3 CTA</title>
+<title>»Logo CTA</title>
 <style>
-body { font-family: sans-serif; padding: 40px; text-align: center; }
-a { display: inline-block; padding: 14px 22px; background: #222; color: #fff; border-radius: 8px; text-decoration: none; }
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    height: 100vh;
+    background: url('https://images.unsplash.com/photo-1501785888041-af3ef285b470') no-repeat center center/cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    backdrop-filter: blur(2px);
+}
+
+.container {
+    background: rgba(0,0,0,0.45);
+    padding: 40px;
+    border-radius: 14px;
+}
+
+a {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 14px 22px;
+    background: #00aaff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 18px;
+}
+a:hover {
+    background: #0088cc;
+}
 </style>
 </head>
+
 <body>
-<h2>Welcome</h2>
-<p>Click below to join:</p>
-<a href="https://status.app/YOUR-GROUP">Join Status Group</a>
+<div class="container">
+    <h1>Welcome to Clash3</h1>
+    <p>Explore the link below and see how it appears in your Google Analytics Realtime.</p>
+
+    <a href="https://status.app/YOUR-GROUP" target="_blank">
+        Visit Status Group
+    </a>
+</div>
 </body>
 </html>
