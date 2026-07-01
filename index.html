@@ -13,51 +13,64 @@
   
 <meta charset="UTF-8">
 <title>»Logo CTA</title>
-<style>
-body {
-    margin: 0;
-    padding: 0;
-    font-family: sans-serif;
-    height: 100vh;
-    background: url('https://images.unsplash.com/photo-1501785888041-af3ef285b470') no-repeat center center/cover;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: white;
-    backdrop-filter: blur(2px);
-}
-
-.container {
-    background: rgba(0,0,0,0.45);
-    padding: 40px;
-    border-radius: 14px;
-}
-
-a {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 14px 22px;
-    background: #00aaff;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 8px;
-    font-size: 18px;
-}
-a:hover {
-    background: #0088cc;
-}
-</style>
+    <style>
+        body {
+            background: #f5f5f5;
+            font-family: sans-serif;
+            text-align: center;
+            padding: 60px;
+        }
+        h1 {
+            font-size: 28px;
+            margin-bottom: 40px;
+        }
+        .cta-main {
+            display: inline-block;
+            padding: 15px 30px;
+            background: #222;
+            color: #fff;
+            text-decoration: none;
+            font-size: 20px;
+            border-radius: 8px;
+            margin-bottom: 50px;
+        }
+        .links {
+            margin-top: 40px;
+        }
+        .links a {
+            display: block;
+            margin: 12px 0;
+            font-size: 18px;
+            color: #333;
+            text-decoration: none;
+        }
+        .links a:hover {
+            color: #000;
+        }
+    </style>
 </head>
-
 <body>
-<div class="container">
-    <h1>Welcome to Clash3</h1>
-    <p>Explore the link below and see how it appears in your Google Analytics Realtime.</p>
 
-    <a href="https://app.towns.com/t/0x44c983f28f17dc4971cfdd1b3f553789f07d7ec7/" target="_blank">
-        Visit Status Group
+    <h1>صفحه تست لینک‌ها</h1>
+
+    <!-- لینک اصلی Towns -->
+    <a class="cta-main" href="https://app.towns.com/t/0x44c983f28f17dc4971cfdd1b3f553789f07d7ec7/" target="_blank">
+        ورود به گروه Towns
     </a>
-</div>
+
+    <div class="links">
+        <!-- لینک Behance -->
+        <a href="https://www.behance.net" target="_blank">Behance</a>
+
+        <!-- لینک LinkedIn -->
+        <a href="https://www.linkedin.com" target="_blank">LinkedIn</a>
+
+        <!-- لینک GitHub -->
+        <a href="https://github.com" target="_blank">GitHub</a>
+
+        <!-- لینک ایمیل -->
+        <a href="mailto:example@gmail.com">ارسال ایمیل</a>
+    </div>
+
 </body>
 </html>
