@@ -527,3 +527,380 @@
       background: linear-gradient(180deg, rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.85));
       padding: 6px 8px;
       border-radius: 10px;
+    }
+
+    .pricing-footer span.label {
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .pricing-footer a.cta {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--accent-gold);
+      text-decoration: none;
+    }
+
+    /* Portfolio section */
+    .portfolio-section {
+      margin-top: 26px;
+      background: rgba(7, 9, 16, 0.96);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-soft);
+      box-shadow: var(--shadow-soft);
+      padding: 18px 16px 18px;
+    }
+
+    .portfolio-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+
+    .portfolio-title {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-muted);
+    }
+
+    .portfolio-tag {
+      font-size: 11px;
+      color: var(--accent-blue);
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    @media (max-width: 900px) {
+      .portfolio-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .portfolio-card {
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(5, 7, 12, 0.96);
+      box-shadow: 0 12px 26px rgba(0, 0, 0, 0.7);
+      cursor: pointer;
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
+      position: relative;
+    }
+
+    .portfolio-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.85);
+      border-color: rgba(59, 180, 255, 0.6);
+    }
+
+    .portfolio-card img {
+      width: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    .portfolio-footer {
+      position: absolute;
+      inset: auto 10px 10px 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 11px;
+      color: #ffffff;
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.85));
+      padding: 6px 8px;
+      border-radius: 10px;
+    }
+
+    .portfolio-footer span.label {
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .portfolio-footer a.cta {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--accent-blue);
+      text-decoration: none;
+    }
+
+    /* Mobile dropdown behavior: vertical + scroll-open */
+    @media (max-width: 900px) {
+      .nav-right {
+        gap: 10px;
+      }
+      .dropdown-panel {
+        position: static;
+        margin-top: 8px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-shell">
+    <!-- NAVBAR -->
+    <header class="nav">
+      <div class="nav-left">
+        <div class="brand-mark">S</div>
+        <div class="brand-text">
+          <div class="brand-title">ScaleOps Cloud Studio</div>
+          <div class="brand-subtitle">NFT-ready branding & Web3 visuals</div>
+        </div>
+      </div>
+      <nav class="nav-right">
+        <a href="https://example.com/behance" class="nav-link" target="_blank">Behance</a>
+        <a href="https://example.com/linkedin" class="nav-link" target="_blank">LinkedIn</a>
+        <a href="https://example.com/medium" class="nav-link" target="_blank">Medium</a>
+
+        <!-- Laborex dropdown -->
+        <div class="dropdown" data-dropdown="laborex">
+          <div class="dropdown-toggle">
+            <span class="label">Laborex</span>
+            <span class="chevron">▾</span>
+          </div>
+          <div class="dropdown-panel">
+            <div class="dropdown-item-title">Secure client–freelancer collaboration</div>
+            <div class="dropdown-item">
+              <span class="highlight">Secure escrow payments</span><br />
+              Funds are locked safely until project completion.
+            </div>
+            <div class="dropdown-item">
+              No direct access to funds for freelancers until the client approves delivery.
+            </div>
+            <div class="dropdown-item">
+              <span class="highlight">Client-approved payouts only</span><br />
+              Every payment is released only after explicit client confirmation.
+            </div>
+            <div class="dropdown-item">
+              <span class="highlight">Full platform support</span><br />
+              Dedicated assistance across every stage of the project lifecycle.
+            </div>
+            <div class="dropdown-item">
+              <span class="highlight-gold">Blockchain-grade security</span><br />
+              High-level protection for each work segment using Web3-native technologies.
+            </div>
+            <div class="dropdown-item">
+              <a href="https://example.com/laborex-collaboration" target="_blank" style="color: var(--accent-blue); text-decoration: none; font-size: 11px;">
+                Explore Laborex collaboration →
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Towns dropdown -->
+        <div class="dropdown" data-dropdown="towns">
+          <div class="dropdown-toggle">
+            <span class="label">Towns</span>
+            <span class="chevron">▾</span>
+          </div>
+          <div class="dropdown-panel">
+            <div class="dropdown-item-title">Crypto-native community & feedback</div>
+            <div class="dropdown-item">
+              <span class="highlight-gold">Crypto payments with ultra-low fees</span><br />
+              Under one cent per transaction for frictionless collaboration.
+            </div>
+            <div class="dropdown-item">
+              <span class="highlight">Monitoring & feedback system</span><br />
+              Structured reviews, transparent performance tracking, and project health insights.
+            </div>
+            <div class="dropdown-item">
+              Discussion groups for deep technical and creative conversations around each project.
+            </div>
+            <div class="dropdown-item">
+              <span class="highlight">Premium client circles</span><br />
+              Exclusive groups for high-value clients and long-term partnerships.
+            </div>
+            <div class="dropdown-item">
+              Platform-native benefits beyond projects: crypto earnings from comments, posts, and activity across all groups.
+            </div>
+            <div class="dropdown-item">
+              <a href="https://example.com/towns-collaboration" target="_blank" style="color: var(--accent-purple); text-decoration: none; font-size: 11px;">
+                Join Towns collaboration →
+              </a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-main">
+        <div class="hero-kicker">Web3-ready logo & brand systems</div>
+        <h1 class="hero-title">
+          Advanced <span class="gradient">NFT logo packages</span> for serious clients.
+        </h1>
+        <p class="hero-subtitle">
+          I design high-impact, crypto-native logo systems and visual identities optimized for Web3 platforms, marketplaces, and long-term brand growth.
+        </p>
+        <div class="hero-cta-row">
+          <button class="btn-primary">
+            Start a project
+          </button>
+          <button class="btn-secondary">
+            <span>View full portfolio</span>
+          </button>
+        </div>
+        <div class="hero-meta">
+          <div class="hero-meta-pill">
+            <span class="dot"></span>
+            <span>Secure escrow & crypto-native workflows</span>
+          </div>
+          <div class="hero-meta-pill">
+            <span class="dot" style="background: var(--accent-blue);"></span>
+            <span>Designed for Laborex & Towns ecosystems</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROFILE + SOCIAL -->
+      <aside class="hero-side">
+        <div class="profile-card">
+          <div class="profile-top">
+            <div class="profile-avatar">
+              <img src="https://lynilystct6gegxb.private.blob.vercel-storage.com/kam%20photo%20(1).png?vercel-blob-delegation=eyJzdG9yZUlkIjoic3RvcmVfbHluSUx5U3RjVDZnRUd4YiIsIm93bmVySWQiOiJ0ZWFtX2pCRlpVR21CcEZaZk1NR0xUdFI0MExOOSIsInBhdGhuYW1lIjoiKiIsIm9wZXJhdGlvbnMiOlsiZ2V0IiwiaGVhZCJdLCJ2YWxpZFVudGlsIjoxNzgzMTE0NTAxNTk2LCJpYXQiOjE3ODMwNzEzMDEwNzl9._z1GVjPuZ7VcV7laxWG8izCHpgVt79Y5Va-pEaGsF5A&vercel-blob-signature=dxiIlbs7F0RusSrAvmQrODG1tONakl4-49xkv1JOqz0" alt="Profile" />
+            </div>
+            <div class="profile-info">
+              <div class="profile-name">Clash3</div>
+              <div class="profile-role">Logo & brand systems designer</div>
+              <div class="profile-badge">Web3-native · NFT-ready · Escrow-safe</div>
+            </div>
+          </div>
+          <p class="profile-text">
+            I build logo ecosystems and brand visuals tailored for Web3 platforms, crypto-native communities, and long-term client relationships.
+            Every project is structured around secure payments, transparent collaboration, and future-proof design.
+          </p>
+          <div class="social-row">
+            <a class="social-link" href="https://example.com/behance" target="_blank">
+              <span>Behance</span>
+            </a>
+            <a class="social-link" href="https://example.com/linkedin" target="_blank">
+              <span>LinkedIn</span>
+            </a>
+            <a class="social-link" href="https://example.com/medium" target="_blank">
+              <span>Medium</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- PRICING CARDS -->
+        <div class="pricing-section">
+          <div class="pricing-header">
+            <div class="pricing-title">NFT logo packages</div>
+            <div class="pricing-tag">Basic · Pro · Premium</div>
+          </div>
+          <div class="pricing-grid">
+            <!-- BASIC -->
+            <div class="pricing-card" onclick="window.location.href='https://example.com/basic-package';">
+              <img src="https://lynilystct6gegxb.private.blob.vercel-storage.com/Copilot_20260703_005647.png?vercel-blob-delegation=eyJzdG9yZUlkIjoic3RvcmVfbHluSUx5U3RjVDZnRUd4YiIsIm93bmVySWQiOiJ0ZWFtX2pCRlpVR21CcEZaZk1NR0xUdFI0MExOOSIsInBhdGhuYW1lIjoiKiIsIm9wZXJhdGlvbnMiOlsiZ2V0IiwiaGVhZCJdLCJ2YWxpZFVudGlsIjoxNzgzMTE0MzQwODI2LCJpYXQiOjE3ODMwNzExNDAwOTh9.W4dHbYiHpb6AxbVJcK8_BE65HBVVb1Q1ywyM_MGL_uM&vercel-blob-signature=8eK46QERalswWik-NP2b1Vayep-4EdjEHSZVl9FopXI" alt="Basic package" />
+              <div class="pricing-footer">
+                <span class="label">Basic logo package</span>
+                <a class="cta" href="https://example.com/basic-package" target="_blank">View details</a>
+              </div>
+            </div>
+            <!-- PRO -->
+            <div class="pricing-card" onclick="window.location.href='https://example.com/pro-package';">
+              <img src="https://lynilystct6gegxb.private.blob.vercel-storage.com/Copilot_20260703_005832.png?vercel-blob-delegation=eyJzdG9yZUlkIjoic3RvcmVfbHluSUx5U3RjVDZnRUd4YiIsIm93bmVySWQiOiJ0ZWFtX2pCRlpVR21CcEZaZk1NR0xUdFI0MExOOSIsInBhdGhuYW1lIjoiKiIsIm9wZXJhdGlvbnMiOlsiZ2V0IiwiaGVhZCJdLCJ2YWxpZFVudGlsIjoxNzgzMTE0NDE4NjYwLCJpYXQiOjE3ODMwNzEyMTgzMTR9.rRlOUELD8sWMa67AX-p_zIrkTKp84BnRkbF-HNb7vCg&vercel-blob-signature=gPJ-V4fOE1Z1aNIT4Bsl4NU2MFQT6MUMgfBc4Rc0kdg" alt="Pro package" />
+              <div class="pricing-footer">
+                <span class="label">Pro logo package</span>
+                <a class="cta" href="https://example.com/pro-package" target="_blank">View details</a>
+              </div>
+            </div>
+            <!-- PREMIUM -->
+            <div class="pricing-card" onclick="window.location.href='https://example.com/premium-package';">
+              <img src="https://lynilystct6gegxb.private.blob.vercel-storage.com/Copilot_20260703_010010.png?vercel-blob-delegation=eyJzdG9yZUlkIjoic3RvcmVfbHluSUx5U3RjVDZnRUd4YiIsIm93bmVySWQiOiJ0ZWFtX2pCRlpVR21CcEZaZk1NR0xUdFI0MExOOSIsInBhdGhuYW1lIjoiKiIsIm9wZXJhdGlvbnMiOlsiZ2V0IiwiaGVhZCJdLCJ2YWxpZFVudGlsIjoxNzgzMTE0NDU5OTg3LCJpYXQiOjE3ODMwNzEyNTk0MzJ9.wRBINVfNTf0YLhDYRzaekxUDBd53EjFRC86IdaheQB4&vercel-blob-signature=Pt7zaeWkcxAcBpTxcYThpuJ_3TqYoBuYg32IPcjs1GQ" alt="Premium package" />
+              <div class="pricing-footer">
+                <span class="label">Premium logo package</span>
+                <a class="cta" href="https://example.com/premium-package" target="_blank">View details</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <!-- PORTFOLIO -->
+    <section class="portfolio-section">
+      <div class="portfolio-header">
+        <div class="portfolio-title">Selected logo & brand work</div>
+        <div class="portfolio-tag">3 curated examples</div>
+      </div>
+      <div class="portfolio-grid">
+        <!-- Work 1 -->
+        <div class="portfolio-card" onclick="window.location.href='https://example.com/work-1';">
+          <img src="https://lynilystct6gegxb.private.blob.vercel-storage.com/2.png?vercel-blob-delegation=eyJzdG9yZUlkIjoic3RvcmVfbHluSUx5U3RjVDZnRUd4YiIsIm93bmVySWQiOiJ0ZWFtX2pCRlpVR21CcEZaZk1NR0xUdFI0MExOOSIsInBhdGhuYW1lIjoiKiIsIm9wZXJhdGlvbnMiOlsiZ2V0IiwiaGVhZCJdLCJ2YWxpZFVudGlsIjoxNzgzMTE0NTcxOTIwLCJpYXQiOjE3ODMwNzEzNzE4Nzh9.kGwSAL2Wktz8raHwLNWKpBiK7ouONyNCx2A6oq20HGc&vercel-blob-signature=dYmWT759DXx7Sr-5CF2BKvNfA0i2C7dJdZ9N2nl1lHE" alt="Work 1" />
+          <div class="portfolio-footer">
+            <span class="label">Logo system · Web3</span>
+            <a class="cta" href="https://example.com/work-1" target="_blank">Open case</a>
+          </div>
+        </div>
+        <!-- Work 2 -->
+        <div class="portfolio-card" onclick="window.location.href='https://example.com/work-2';">
+          <img src="https://lynilystct6gegxb.private.blob.vercel-storage.com/20.1-01%20-%20Copy.png?vercel-blob-delegation=eyJzdG9yZUlkIjoic3RvcmVfbHluSUx5U3RjVDZnRUd4YiIsIm93bmVySWQiOiJ0ZWFtX2pCRlpVR21CcEZaZk1NR0xUdFI0MExOOSIsInBhdGhuYW1lIjoiKiIsIm9wZXJhdGlvbnMiOlsiZ2V0IiwiaGVhZCJdLCJ2YWxpZFVudGlsIjoxNzgzMTE0Njg2MDg5LCJpYXQiOjE3ODMwNzE0ODU1Mzd9.90ssBWqI9f45jzvRoLUCY90gcGzbMp_JCcYvaWhSZWQ&vercel-blob-signature=Xoq3WSTniX5V6w65QnJR2I9c8dxpJ3fOSt_4lJ-hJ3o" alt="Work 2" />
+          <div class="portfolio-footer">
+            <span class="label">Brand identity · Crypto</span>
+            <a class="cta" href="https://example.com/work-2" target="_blank">Open case</a>
+          </div>
+        </div>
+        <!-- Work 3 -->
+        <div class="portfolio-card" onclick="window.location.href='https://example.com/work-3';">
+          <img src="https://lynilystct6gegxb.private.blob.vercel-storage.com/26.1-01%20-%20Copy.png?vercel-blob-delegation=eyJzdG9yZUlkIjoic3RvcmVfbHluSUx5U3RjVDZnRUd4YiIsIm93bmVySWQiOiJ0ZWFtX2pCRlpVR21CcEZaZk1NR0xUdFI0MExOOSIsInBhdGhuYW1lIjoiKiIsIm9wZXJhdGlvbnMiOlsiZ2V0IiwiaGVhZCJdLCJ2YWxpZFVudGlsIjoxNzgzMTE0Nzk5MDA5LCJpYXQiOjE3ODMwNzE1OTgyODB9.ocSBtCbmuol0MCSX7pZSR033DuMFeWIuDB8vnNpgU28&vercel-blob-signature=_GO_OX6tkDbky45A_jvaQKRKCpTTcvmkk25ixBqN6KU" alt="Work 3" />
+          <div class="portfolio-footer">
+            <span class="label">Logo grid · Precision</span>
+            <a class="cta" href="https://example.com/work-3" target="_blank">Open case</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    // Mobile dropdown: click to toggle
+    const dropdowns = document.querySelectorAll(".dropdown");
+    dropdowns.forEach((dd) => {
+      const toggle = dd.querySelector(".dropdown-toggle");
+      const panel = dd.querySelector(".dropdown-panel");
+
+      // Click behavior (mobile + desktop)
+      toggle.addEventListener("click", (e) => {
+        e.stopPropagation();
+        const isOpen = panel.classList.contains("open");
+        document.querySelectorAll(".dropdown-panel.open").forEach((p) => {
+          if (p !== panel) p.classList.remove("open");
+        });
+        if (!isOpen) panel.classList.add("open");
+        else panel.classList.remove("open");
+      });
+    });
+
+    // Close on click outside (for mobile)
+    document.addEventListener("click", () => {
+      document.querySelectorAll(".dropdown-panel.open").forEach((p) => p.classList.remove("open"));
+    });
+
+    // Scroll behavior for mobile: if title passes center, keep open
+    function handleScrollDropdowns() {
+      if (window.innerWidth > 900) return; // only mobile
+      dropdowns.forEach((dd) => {
+        const toggle = dd.querySelector(".dropdown-toggle");
+        const panel = dd.querySelector(".dropdown-panel");
+        const rect = toggle.getBoundingClientRect();
+        const center = window.innerHeight / 2;
+        if (rect.top < center) {
+          panel.classList.add("open");
+        }
+      });
+    }
+
+    window.addEventListener("scroll", handleScrollDropdowns);
+  </script>
+</body>
+</html>
