@@ -12,523 +12,895 @@
 
   
 <meta charset="UTF-8">
-<title>SA2-Collaboration-CTA</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ScaleOps Cloud Studio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    :root {
+      --bg-dark: #05060a;
+      --bg-panel: #0b0f18;
+      --accent-blue: #3bb4ff;
+      --accent-purple: #b86bff;
+      --accent-gold: #f6c453;
+      --text-main: #f5f7ff;
+      --text-muted: #9aa0b8;
+      --border-soft: rgba(255, 255, 255, 0.08);
+      --shadow-soft: 0 18px 40px rgba(0, 0, 0, 0.65);
+      --radius-lg: 18px;
+      --radius-md: 12px;
+      --radius-sm: 8px;
+      --transition-fast: 0.18s ease-out;
+    }
 
-<style>
-:root {
---panel: rgba(5, 7, 18, 0.92);
---panel-soft: rgba(7, 10, 22, 0.94);
---accent-blue: #3bb4ff;
---accent-purple: #b86bff;
---accent-gold: #f6c453;
---accent-green: #4fd18b;
---accent-pink: #ff6fb5;
---text-main: #f5f7ff;
---text-muted: #b0b5cc;
---border-soft: rgba(255, 255, 255, 0.12);
---shadow-soft: 0 18px 40px rgba(0, 0, 0, 0.85);
---radius-lg: 22px;
---radius-md: 14px;
---radius-sm: 10px;
---transition-fast: 0.18s ease-out;
-}
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-* {
-box-sizing: border-box;
-margin: 0;
-padding: 0;
-}
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+      background: radial-gradient(circle at top, #151a2b 0, #05060a 55%, #020308 100%);
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      justify-content: flex-start;
+      overflow-x: hidden;
+      position: relative;
+    }
 
-body {
-font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-color: var(--text-main);
-min-height: 100vh;
-display: flex;
-justify-content: center;
-align-items: flex-start;
-padding: 24px 12px 40px;
-background: linear-gradient(135deg, rgba(0,0,0,0.75), rgba(0,0,0,0.9)),
-url("https://lynilystct6gegxb.private.blob.vercel-storage.com/xiaomi-pad-7-pro-3840x2160-19801.jpg?vercel-blob-delegation=eyJzdG9yZUlkIjoic3RvcmVfbHluSUx5U3RjVDZnRUd4YiIsIm93bmVySWQiOiJ0ZWFtX2pCRlpVR21CcEZaZk1NR0xUdFI0MExOOSIsInBhdGhuYW1lIjoiKiIsIm9wZXJhdGlvbnMiOlsiZ2V0IiwiaGVhZCJdLCJ2YWxpZFVudGlsIjoxNzgzMTEzNzk4MTgxLCJpYXQiOjE3ODMwNzA1OTg4NTJ9.JP5uNLpJwcM0JQa3t-TOWjAXL1gqv-NgotLl5cLa4kg&vercel-blob-signature=q-ESipABu0MH27bTkua1LOjgvNmZ8skskpMHAOJbkCw") center/cover fixed;
-}
+    /* Background image */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image: url("https://lynilystct6gegxb.private.blob.vercel-storage.com/xiaomi-pad-7-pro-3840x2160-19801.jpg?vercel-blob-delegation=eyJzdG9yZUlkIjoic3RvcmVfbHluSUx5U3RjVDZnRUd4YiIsIm93bmVySWQiOiJ0ZWFtX2pCRlpVR21CcEZaZk1NR0xUdFI0MExOOSIsInBhdGhuYW1lIjoiKiIsIm9wZXJhdGlvbnMiOlsiZ2V0IiwiaGVhZCJdLCJ2YWxpZFVudGlsIjoxNzgzMTEzNzk4MTgxLCJpYXQiOjE3ODMwNzA1OTg4NTJ9.JP5uNLpJwcM0JQa3t-TOWjAXL1gqv-NgotLl5cLa4kg&vercel-blob-signature=q-ESipABu0MH27bTkua1LOjgvNmZ8skskpMHAOJbkCw");
+      background-size: cover;
+      background-position: center;
+      opacity: 0.18;
+      filter: blur(2px);
+      z-index: -1;
+    }
 
-.page {
-max-width: 1200px;
-width: 100%;
-background: radial-gradient(circle at 0% 0%, rgba(59,180,255,0.18), transparent 55%),
-radial-gradient(circle at 100% 0%, rgba(184,107,255,0.18), transparent 55%),
-linear-gradient(135deg, rgba(5,7,18,0.96), rgba(2,3,10,0.96));
-border-radius: 26px;
-border: 1px solid rgba(255,255,255,0.12);
-box-shadow: 0 30px 80px rgba(0,0,0,0.95);
-padding: 22px;
-}
+    .page-shell {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 24px 18px 40px;
+    }
 
-.header {
-display: flex;
-justify-content: flex-start;
-align-items: center;
-margin-bottom: 18px;
-}
-/* GRID */
-.main-grid {
-    display: grid;
-    grid-template-columns: 1.1fr 1fr; /* نسبت بهتر */
-    gap: 10px; /* فاصله حدود ۱ سانت */
-    margin: 0 auto; /* مرکز کردن کل گرید */
-    max-width: 1200px; /* جلوگیری از کش آمدن در زوم */
-}
+    /* Top navigation */
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 32px;
+    }
 
-@media(max-width:900px){
-.main-grid { grid-template-columns: 1fr; }
-}
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
 
-/* LEFT PANEL */
-.left-panel {
-background: var(--panel-soft);
-border-radius: var(--radius-lg);
-border: 1px solid var(--border-soft);
-box-shadow: var(--shadow-soft);
-padding: 18px;
-}
+    .brand-mark {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 0%, #3bb4ff 0, #b86bff 40%, #05060a 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 24px rgba(59, 180, 255, 0.6);
+      font-weight: 700;
+      font-size: 20px;
+      color: #ffffff;
+    }
 
-.left-title {
-font-size: 17px;
-font-weight: 700;
-margin-bottom: 6px;
-}
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
 
-.left-subtitle {
-font-size: 13px;
-color: var(--text-muted);
-margin-bottom: 14px;
-}
+    .brand-title {
+      font-size: 16px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-main);
+    }
 
-.platform-row {
-display: grid;
-grid-template-columns: repeat(2,1fr);
-gap: 10px;
-margin-bottom: 14px;
-}
+    .brand-subtitle {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
 
-@media(max-width:700px){
-.platform-row { grid-template-columns: 1fr; }
-}
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
 
-.platform-card {
-position: relative;
-border-radius: var(--radius-md);
-padding: 11px 12px;
-background: linear-gradient(135deg,#050712,#070a16);
-border: 1px solid rgba(255,255,255,0.14);
-box-shadow: 0 14px 30px rgba(0,0,0,0.8);
-cursor: pointer;
-overflow: hidden;
-transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
-}
+    .nav-link {
+      font-size: 13px;
+      color: var(--text-muted);
+      text-decoration: none;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      transition: color var(--transition-fast), border-color var(--transition-fast), background var(--transition-fast);
+      cursor: pointer;
+    }
 
-.platform-card:hover {
-transform: translateY(-3px);
-box-shadow: 0 20px 46px rgba(0,0,0,0.9);
-border-color: rgba(184,107,255,0.7);
-}
+    .nav-link:hover {
+      color: var(--text-main);
+      border-color: var(--border-soft);
+      background: rgba(255, 255, 255, 0.03);
+    }
 
-.platform-title {
-font-size: 12px;
-text-transform: uppercase;
-letter-spacing: 0.12em;
-margin-bottom: 4px;
-color: var(--accent-blue);
-}
+    /* Dropdown containers */
+    .dropdown {
+      position: relative;
+    }
 
-.platform-name {
-font-size: 14px;
-font-weight: 600;
-margin-bottom: 4px;
-}
+    .dropdown-toggle {
+      font-size: 13px;
+      color: var(--text-main);
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--border-soft);
+      background: rgba(10, 12, 20, 0.9);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      transition: background var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast);
+    }
 
-.platform-desc {
-font-size: 12px;
-color: var(--text-muted);
-}
+    .dropdown-toggle span.label {
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 11px;
+    }
 
-.platform-details {
-margin-top: 8px;
-font-size: 12px;
-color: var(--text-main);
-opacity: 0;
-max-height: 0;
-overflow: hidden;
-transition: opacity var(--transition-fast), max-height var(--transition-fast);
-}
+    .dropdown-toggle span.chevron {
+      font-size: 11px;
+      opacity: 0.7;
+    }
 
-.platform-card:hover .platform-details {
-opacity: 1;
-max-height: 200px;
-}
+    .dropdown-toggle:hover {
+      background: rgba(20, 24, 40, 0.95);
+      border-color: rgba(255, 255, 255, 0.16);
+      transform: translateY(-1px);
+    }
 
-.platform-link {
-font-size: 11px;
-text-transform: uppercase;
-letter-spacing: 0.12em;
-margin-top: 6px;
-color: var(--accent-purple);
-text-decoration: none;
-display: inline-block;
-}
+    .dropdown-panel {
+      position: absolute;
+      top: 110%;
+      left: 0;
+      min-width: 260px;
+      background: rgba(7, 9, 16, 0.98);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-soft);
+      box-shadow: var(--shadow-soft);
+      padding: 12px 14px;
+      display: none;
+      flex-direction: column;
+      gap: 8px;
+      z-index: 20;
+    }
 
-/* PACKAGES */
-.packages-row {
-display: grid;
-grid-template-columns: repeat(3,1fr);
-gap: 10px;
-}
+    .dropdown-panel.open {
+      display: flex;
+    }
 
-@media(max-width:900px){
-.packages-row { grid-template-columns: 1fr; }
-}
+    .dropdown-item-title {
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent-blue);
+      margin-bottom: 4px;
+    }
 
-.package-card {
-border-radius: var(--radius-md);
-padding: 6px;
-background: linear-gradient(145deg,#050712,#0b0f1f);
-border: 1px solid rgba(255,255,255,0.14);
-box-shadow: 0 14px 30px rgba(0,0,0,0.85);
-cursor: pointer;
-overflow: hidden;
-transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
-}
+    .dropdown-item {
+      font-size: 12px;
+      color: var(--text-main);
+      padding: 6px 8px;
+      border-radius: var(--radius-sm);
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.04);
+    }
 
-.package-card:hover {
-transform: translateY(-3px);
-box-shadow: 0 20px 46px rgba(0,0,0,0.95);
-border-color: rgba(246,196,83,0.7);
-}
-.package-image {
-    width: 100%;
-    padding-top: 125%; /* مربع واقعی */
-    position: relative;
-    overflow: hidden;
-    border-radius: 14px;
-}
-.package-image img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 14px;
-}
+    .dropdown-item span.highlight {
+      color: var(--accent-purple);
+      font-weight: 500;
+    }
 
-/* RIGHT PANEL */
-.right-panel {
-display: flex;
-flex-direction: column;
-gap: 12px;
-}
+    .dropdown-item span.highlight-gold {
+      color: var(--accent-gold);
+      font-weight: 500;
+    }
 
-.profile-card {
-background: var(--panel);
-border-radius: var(--radius-lg);
-border: 1px solid var(--border-soft);
-box-shadow: var(--shadow-soft);
-padding: 16px;
-}
+    /* Desktop hover behavior */
+    @media (min-width: 900px) {
+      .dropdown:hover .dropdown-panel {
+        display: flex;
+      }
+    }
 
-.profile-top {
-display: flex;
-align-items: center;
-gap: 12px;
-margin-bottom: 10px;
-}
+    /* Hero section */
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+      gap: 28px;
+      align-items: center;
+      margin-bottom: 40px;
+    }
 
-.profile-avatar {
-width: 60px;
-height: 60px;
-border-radius: 999px;
-overflow: hidden;
-border: 1px solid rgba(255,255,255,0.18);
-box-shadow: 0 0 18px rgba(59,180,255,0.6);
-}
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
 
-.profile-avatar img {
-width: 100%;
-height: 100%;
-object-fit: cover;
-}
+    .hero-main {
+      background: linear-gradient(135deg, rgba(10, 12, 20, 0.96), rgba(10, 12, 20, 0.9));
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-soft);
+      box-shadow: var(--shadow-soft);
+      padding: 22px 22px 20px;
+      position: relative;
+      overflow: hidden;
+    }
 
-.profile-name {
-font-size: 15px;
-font-weight: 600;
-}
+    .hero-kicker {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--accent-blue);
+      margin-bottom: 10px;
+    }
 
-.profile-role {
-font-size: 12px;
-color: var(--text-muted);
-}
+    .hero-title {
+      font-size: 26px;
+      line-height: 1.25;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
 
-.profile-badge {
-font-size: 11px;
-text-transform: uppercase;
-letter-spacing: 0.12em;
-color: var(--accent-gold);
-}
+    .hero-title span.gradient {
+      background: linear-gradient(90deg, #3bb4ff, #b86bff, #f6c453);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
 
-.profile-text {
-font-size: 12px;
-color: var(--text-muted);
-margin-bottom: 10px;
-}
+    .hero-subtitle {
+      font-size: 13px;
+      color: var(--text-muted);
+      max-width: 480px;
+      margin-bottom: 18px;
+    }
 
-.social-row {
-display: flex;
-flex-wrap: wrap;
-gap: 6px;
-margin-bottom: 6px;
-}
+    .hero-cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
 
-.social-link {
-font-size: 11px;
-text-transform: uppercase;
-letter-spacing: 0.12em;
-padding: 6px 9px;
-border-radius: 999px;
-border: 1px solid rgba(255,255,255,0.14);
-background: rgba(255,255,255,0.02);
-color: var(--text-main);
-text-decoration: none;
-transition: background var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast);
-}
+    .btn-primary {
+      padding: 9px 16px;
+      border-radius: 999px;
+      border: none;
+      background: radial-gradient(circle at 0% 0%, #3bb4ff 0, #b86bff 40%, #05060a 100%);
+      color: #ffffff;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      cursor: pointer;
+      box-shadow: 0 0 24px rgba(184, 107, 255, 0.7);
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast), filter var(--transition-fast);
+    }
 
-.social-link:hover {
-background: rgba(255,255,255,0.06);
-border-color: rgba(59,180,255,0.7);
-transform: translateY(-1px);
-}
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      filter: brightness(1.08);
+      box-shadow: 0 0 30px rgba(184, 107, 255, 0.9);
+    }
 
-.profile-medal {
-font-size: 11px;
-color: var(--accent-blue);
-text-transform: uppercase;
-letter-spacing: 0.12em;
-}
+    .btn-secondary {
+      padding: 9px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--border-soft);
+      background: rgba(255, 255, 255, 0.02);
+      color: var(--text-main);
+      font-size: 12px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: background var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast);
+    }
 
-/* WORKS */
-.works-card {
-background: var(--panel);
-border-radius: var(--radius-lg);
-border: 1px solid var(--border-soft);
-box-shadow: var(--shadow-soft);
-padding: 12px;
-}
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.04);
+      border-color: rgba(255, 255, 255, 0.16);
+      transform: translateY(-1px);
+    }
 
-.works-title {
-font-size: 12px;
-text-transform: uppercase;
-letter-spacing: 0.14em;
-color: var(--text-muted);
-margin-bottom: 8px;
-}
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-size: 11px;
+      color: var(--text-muted);
+    }
 
-.works-grid {
-display: grid;
-grid-template-columns: repeat(3,1fr);
-gap: 8px;
-}
+    .hero-meta-pill {
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      background: rgba(255, 255, 255, 0.02);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
 
-@media(max-width:900px){
-.works-grid { grid-template-columns: 1fr; }
-}
+    .hero-meta-pill span.dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent-purple);
+    }
 
-.work-card {
-border-radius: var(--radius-md);
-padding: 6px;
-background: linear-gradient(135deg,#050712,#0b0f1f);
-border: 1px solid rgba(255,255,255,0.16);
-box-shadow: 0 14px 30px rgba(0,0,0,0.85);
-cursor: pointer;
-transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
-aspect-ratio: 1 / 1;
-display: flex;
-flex-direction: column;
-}
+    /* Profile + social */
+    .hero-side {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
 
-.work-card:hover {
-transform: translateY(-3px);
-box-shadow: 0 20px 46px rgba(0,0,0,0.95);
-border-color: rgba(59,180,255,0.8);
-}
+    .profile-card {
+      background: rgba(7, 9, 16, 0.96);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-soft);
+      box-shadow: var(--shadow-soft);
+      padding: 16px 16px 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
 
-.work-image {
-    width: 100%;
-    padding-top: 100%;   /* مربع واقعی */
-    position: relative;
-    overflow: hidden;
-}
+    .profile-top {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
 
-.work-image img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 12px;
-    border: 1px solid rgba(255,255,255,0.18);
-}
+    .profile-avatar {
+      width: 52px;
+      height: 52px;
+      border-radius: 999px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      box-shadow: 0 0 18px rgba(59, 180, 255, 0.6);
+      flex-shrink: 0;
+    }
 
-.work-label {
-font-size: 11px;
-text-transform: uppercase;
-letter-spacing: 0.12em;
-color: var(--text-main);
-}
+    .profile-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
 
-.work-sub {
-font-size: 11px;
-color: var(--text-muted);
-}
-</style>
+    .profile-info {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .profile-name {
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .profile-role {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .profile-badge {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--accent-gold);
+    }
+
+    .profile-text {
+      font-size: 11px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .social-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .social-link {
+      font-size: 11px;
+      color: var(--text-main);
+      text-decoration: none;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.02);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: background var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast);
+    }
+
+    .social-link:hover {
+      background: rgba(255, 255, 255, 0.06);
+      border-color: rgba(255, 255, 255, 0.18);
+      transform: translateY(-1px);
+    }
+
+    /* Pricing cards */
+    .pricing-section {
+      margin-top: 10px;
+      background: rgba(7, 9, 16, 0.96);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-soft);
+      box-shadow: var(--shadow-soft);
+      padding: 18px 16px 16px;
+    }
+
+    .pricing-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 14px;
+    }
+
+    .pricing-title {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-muted);
+    }
+
+    .pricing-tag {
+      font-size: 11px;
+      color: var(--accent-purple);
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    @media (max-width: 900px) {
+      .pricing-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .pricing-card {
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(5, 7, 12, 0.96);
+      box-shadow: 0 12px 26px rgba(0, 0, 0, 0.7);
+      position: relative;
+      cursor: pointer;
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
+    }
+
+    .pricing-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.85);
+      border-color: rgba(184, 107, 255, 0.6);
+    }
+
+    .pricing-card img {
+      width: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    .pricing-footer {
+      position: absolute;
+      inset: auto 10px 10px 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 11px;
+      color: #ffffff;
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.85));
+      padding: 6px 8px;
+      border-radius: 10px;
+    }
+
+    .pricing-footer span.label {
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .pricing-footer a.cta {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--accent-gold);
+      text-decoration: none;
+    }
+
+    /* Portfolio section */
+    .portfolio-section {
+      margin-top: 26px;
+      background: rgba(7, 9, 16, 0.96);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-soft);
+      box-shadow: var(--shadow-soft);
+      padding: 18px 16px 18px;
+    }
+
+    .portfolio-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+
+    .portfolio-title {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-muted);
+    }
+
+    .portfolio-tag {
+      font-size: 11px;
+      color: var(--accent-blue);
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    @media (max-width: 900px) {
+      .portfolio-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .portfolio-card {
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(5, 7, 12, 0.96);
+      box-shadow: 0 12px 26px rgba(0, 0, 0, 0.7);
+      cursor: pointer;
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
+      position: relative;
+    }
+
+    .portfolio-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.85);
+      border-color: rgba(59, 180, 255, 0.6);
+    }
+
+    .portfolio-card img {
+      width: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    .portfolio-footer {
+      position: absolute;
+      inset: auto 10px 10px 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 11px;
+      color: #ffffff;
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.85));
+      padding: 6px 8px;
+      border-radius: 10px;
+    }
+
+    .portfolio-footer span.label {
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .portfolio-footer a.cta {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--accent-blue);
+      text-decoration: none;
+    }
+
+    /* Mobile dropdown behavior: vertical + scroll-open */
+    @media (max-width: 900px) {
+      .nav-right {
+        gap: 10px;
+      }
+      .dropdown-panel {
+        position: static;
+        margin-top: 8px;
+      }
+    }
+  </style>
 </head>
-
 <body>
-<div class="page">
+  <div class="page-shell">
+    <!-- NAVBAR -->
+    <header class="nav">
+      <div class="nav-left">
+        <div class="brand-mark">S</div>
+        <div class="brand-text">
+          <div class="brand-title">ScaleOps Cloud Studio</div>
+          <div class="brand-subtitle">NFT-ready branding & Web3 visuals</div>
+        </div>
+      </div>
+      <nav class="nav-right">
+        <a href="https://example.com/behance" class="nav-link" target="_blank">Behance</a>
+        <a href="https://example.com/linkedin" class="nav-link" target="_blank">LinkedIn</a>
+        <a href="https://example.com/medium" class="nav-link" target="_blank">Medium</a>
 
-<header class="header">
+        <!-- Laborex dropdown -->
+        <div class="dropdown" data-dropdown="laborex">
+          <div class="dropdown-toggle">
+            <span class="label">Laborex</span>
+            <span class="chevron">▾</span>
+          </div>
+          <div class="dropdown-panel">
+            <div class="dropdown-item-title">Secure client–freelancer collaboration</div>
+            <div class="dropdown-item">
+              <span class="highlight">Secure escrow payments</span><br />
+              Funds are locked safely until project completion.
+            </div>
+            <div class="dropdown-item">
+              No direct access to funds for freelancers until the client approves delivery.
+            </div>
+            <div class="dropdown-item">
+              <span class="highlight">Client-approved payouts only</span><br />
+              Every payment is released only after explicit client confirmation.
+            </div>
+            <div class="dropdown-item">
+              <span class="highlight">Full platform support</span><br />
+              Dedicated assistance across every stage of the project lifecycle.
+            </div>
+            <div class="dropdown-item">
+              <span class="highlight-gold">Blockchain-grade security</span><br />
+              High-level protection for each work segment using Web3-native technologies.
+            </div>
+            <div class="dropdown-item">
+              <a href="https://example.com/laborex-collaboration" target="_blank" style="color: var(--accent-blue); text-decoration: none; font-size: 11px;">
+                Explore Laborex collaboration →
+              </a>
+            </div>
+          </div>
+        </div>
 
-</header>
+        <!-- Towns dropdown -->
+        <div class="dropdown" data-dropdown="towns">
+          <div class="dropdown-toggle">
+            <span class="label">Towns</span>
+            <span class="chevron">▾</span>
+          </div>
+          <div class="dropdown-panel">
+            <div class="dropdown-item-title">Crypto-native community & feedback</div>
+            <div class="dropdown-item">
+              <span class="highlight-gold">Crypto payments with ultra-low fees</span><br />
+              Under one cent per transaction for frictionless collaboration.
+            </div>
+            <div class="dropdown-item">
+              <span class="highlight">Monitoring & feedback system</span><br />
+              Structured reviews, transparent performance tracking, and project health insights.
+            </div>
+            <div class="dropdown-item">
+              Discussion groups for deep technical and creative conversations around each project.
+            </div>
+            <div class="dropdown-item">
+              <span class="highlight">Premium client circles</span><br />
+              Exclusive groups for high-value clients and long-term partnerships.
+            </div>
+            <div class="dropdown-item">
+              Platform-native benefits beyond projects: crypto earnings from comments, posts, and activity across all groups.
+            </div>
+            <div class="dropdown-item">
+              <a href="https://example.com/towns-collaboration" target="_blank" style="color: var(--accent-purple); text-decoration: none; font-size: 11px;">
+                Join Towns collaboration →
+              </a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
 
-<section class="main-grid">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-main">
+        <div class="hero-kicker">Web3-ready logo & brand systems</div>
+        <h1 class="hero-title">
+          Advanced <span class="gradient">NFT logo packages</span> for serious clients.
+        </h1>
+        <p class="hero-subtitle">
+          I design high-impact, crypto-native logo systems and visual identities optimized for Web3 platforms, marketplaces, and long-term brand growth.
+        </p>
+        <div class="hero-cta-row">
+          <button class="btn-primary">
+            Start a project
+          </button>
+          <button class="btn-secondary">
+            <span>View full portfolio</span>
+          </button>
+        </div>
+        <div class="hero-meta">
+          <div class="hero-meta-pill">
+            <span class="dot"></span>
+            <span>Secure escrow & crypto-native workflows</span>
+          </div>
+          <div class="hero-meta-pill">
+            <span class="dot" style="background: var(--accent-blue);"></span>
+            <span>Designed for Laborex & Towns ecosystems</span>
+          </div>
+        </div>
+      </div>
 
-<div class="left-panel">
+      <!-- PROFILE + SOCIAL -->
+      <aside class="hero-side">
+        <div class="profile-card">
+          <div class="profile-top">
+            <div class="profile-avatar">
+              <img src="https://lynilystct6gegxb.private.blob.vercel-storage.com/kam%20photo%20(1).png?vercel-blob-delegation=eyJzdG9yZUlkIjoic3RvcmVfbHluSUx5U3RjVDZnRUd4YiIsIm93bmVySWQiOiJ0ZWFtX2pCRlpVR21CcEZaZk1NR0xUdFI0MExOOSIsInBhdGhuYW1lIjoiKiIsIm9wZXJhdGlvbnMiOlsiZ2V0IiwiaGVhZCJdLCJ2YWxpZFVudGlsIjoxNzgzMTE0NTAxNTk2LCJpYXQiOjE3ODMwNzEzMDEwNzl9._z1GVjPuZ7VcV7laxWG8izCHpgVt79Y5Va-pEaGsF5A&vercel-blob-signature=dxiIlbs7F0RusSrAvmQrODG1tONakl4-49xkv1JOqz0" alt="Profile" />
+            </div>
+            <div class="profile-info">
+              <div class="profile-name">Clash3</div>
+              <div class="profile-role">Logo & brand systems designer</div>
+              <div class="profile-badge">Web3-native · NFT-ready · Escrow-safe</div>
+            </div>
+          </div>
+          <p class="profile-text">
+            I build logo ecosystems and brand visuals tailored for Web3 platforms, crypto-native communities, and long-term client relationships.
+            Every project is structured around secure payments, transparent collaboration, and future-proof design.
+          </p>
+          <div class="social-row">
+            <a class="social-link" href="https://example.com/behance" target="_blank">
+              <span>Behance</span>
+            </a>
+            <a class="social-link" href="https://example.com/linkedin" target="_blank">
+              <span>LinkedIn</span>
+            </a>
+            <a class="social-link" href="https://example.com/medium" target="_blank">
+              <span>Medium</span>
+            </a>
+          </div>
+        </div>
 
-<div class="left-title">Collaboration with freelance work platforms</div>
-<div class="left-subtitle">
-I work through secure platforms like Towns and LaborX, using clear logo packages and transparent project structures.
-</div>
+        <!-- PRICING CARDS -->
+        <div class="pricing-section">
+          <div class="pricing-header">
+            <div class="pricing-title">NFT logo packages</div>
+            <div class="pricing-tag">Basic · Pro · Premium</div>
+          </div>
+          <div class="pricing-grid">
+            <!-- BASIC -->
+            <div class="pricing-card" onclick="window.location.href='https://example.com/basic-package';">
+              <img src="https://lynilystct6gegxb.private.blob.vercel-storage.com/Copilot_20260703_005647.png?vercel-blob-delegation=eyJzdG9yZUlkIjoic3RvcmVfbHluSUx5U3RjVDZnRUd4YiIsIm93bmVySWQiOiJ0ZWFtX2pCRlpVR21CcEZaZk1NR0xUdFI0MExOOSIsInBhdGhuYW1lIjoiKiIsIm9wZXJhdGlvbnMiOlsiZ2V0IiwiaGVhZCJdLCJ2YWxpZFVudGlsIjoxNzgzMTE0MzQwODI2LCJpYXQiOjE3ODMwNzExNDAwOTh9.W4dHbYiHpb6AxbVJcK8_BE65HBVVb1Q1ywyM_MGL_uM&vercel-blob-signature=8eK46QERalswWik-NP2b1Vayep-4EdjEHSZVl9FopXI" alt="Basic package" />
+              <div class="pricing-footer">
+                <span class="label">Basic logo package</span>
+                <a class="cta" href="https://example.com/basic-package" target="_blank">View details</a>
+              </div>
+            </div>
+            <!-- PRO -->
+            <div class="pricing-card" onclick="window.location.href='https://example.com/pro-package';">
+              <img src="https://lynilystct6gegxb.private.blob.vercel-storage.com/Copilot_20260703_005832.png?vercel-blob-delegation=eyJzdG9yZUlkIjoic3RvcmVfbHluSUx5U3RjVDZnRUd4YiIsIm93bmVySWQiOiJ0ZWFtX2pCRlpVR21CcEZaZk1NR0xUdFI0MExOOSIsInBhdGhuYW1lIjoiKiIsIm9wZXJhdGlvbnMiOlsiZ2V0IiwiaGVhZCJdLCJ2YWxpZFVudGlsIjoxNzgzMTE0NDE4NjYwLCJpYXQiOjE3ODMwNzEyMTgzMTR9.rRlOUELD8sWMa67AX-p_zIrkTKp84BnRkbF-HNb7vCg&vercel-blob-signature=gPJ-V4fOE1Z1aNIT4Bsl4NU2MFQT6MUMgfBc4Rc0kdg" alt="Pro package" />
+              <div class="pricing-footer">
+                <span class="label">Pro logo package</span>
+                <a class="cta" href="https://example.com/pro-package" target="_blank">View details</a>
+              </div>
+            </div>
+            <!-- PREMIUM -->
+            <div class="pricing-card" onclick="window.location.href='https://example.com/premium-package';">
+              <img src="https://lynilystct6gegxb.private.blob.vercel-storage.com/Copilot_20260703_010010.png?vercel-blob-delegation=eyJzdG9yZUlkIjoic3RvcmVfbHluSUx5U3RjVDZnRUd4YiIsIm93bmVySWQiOiJ0ZWFtX2pCRlpVR21CcEZaZk1NR0xUdFI0MExOOSIsInBhdGhuYW1lIjoiKiIsIm9wZXJhdGlvbnMiOlsiZ2V0IiwiaGVhZCJdLCJ2YWxpZFVudGlsIjoxNzgzMTE0NDU5OTg3LCJpYXQiOjE3ODMwNzEyNTk0MzJ9.wRBINVfNTf0YLhDYRzaekxUDBd53EjFRC86IdaheQB4&vercel-blob-signature=Pt7zaeWkcxAcBpTxcYThpuJ_3TqYoBuYg32IPcjs1GQ" alt="Premium package" />
+              <div class="pricing-footer">
+                <span class="label">Premium logo package</span>
+                <a class="cta" href="https://example.com/premium-package" target="_blank">View details</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </section>
 
-<div class="platform-row">
+    <!-- PORTFOLIO -->
+    <section class="portfolio-section">
+      <div class="portfolio-header">
+        <div class="portfolio-title">Selected logo & brand work</div>
+        <div class="portfolio-tag">3 curated examples</div>
+      </div>
+      <div class="portfolio-grid">
+        <!-- Work 1 -->
+        <div class="portfolio-card" onclick="window.location.href='https://example.com/work-1';">
+          <img src="https://lynilystct6gegxb.private.blob.vercel-storage.com/2.png?vercel-blob-delegation=eyJzdG9yZUlkIjoic3RvcmVfbHluSUx5U3RjVDZnRUd4YiIsIm93bmVySWQiOiJ0ZWFtX2pCRlpVR21CcEZaZk1NR0xUdFI0MExOOSIsInBhdGhuYW1lIjoiKiIsIm9wZXJhdGlvbnMiOlsiZ2V0IiwiaGVhZCJdLCJ2YWxpZFVudGlsIjoxNzgzMTE0NTcxOTIwLCJpYXQiOjE3ODMwNzEzNzE4Nzh9.kGwSAL2Wktz8raHwLNWKpBiK7ouONyNCx2A6oq20HGc&vercel-blob-signature=dYmWT759DXx7Sr-5CF2BKvNfA0i2C7dJdZ9N2nl1lHE" alt="Work 1" />
+          <div class="portfolio-footer">
+            <span class="label">Logo system · Web3</span>
+            <a class="cta" href="https://example.com/work-1" target="_blank">Open case</a>
+          </div>
+        </div>
+        <!-- Work 2 -->
+        <div class="portfolio-card" onclick="window.location.href='https://example.com/work-2';">
+          <img src="https://lynilystct6gegxb.private.blob.vercel-storage.com/20.1-01%20-%20Copy.png?vercel-blob-delegation=eyJzdG9yZUlkIjoic3RvcmVfbHluSUx5U3RjVDZnRUd4YiIsIm93bmVySWQiOiJ0ZWFtX2pCRlpVR21CcEZaZk1NR0xUdFI0MExOOSIsInBhdGhuYW1lIjoiKiIsIm9wZXJhdGlvbnMiOlsiZ2V0IiwiaGVhZCJdLCJ2YWxpZFVudGlsIjoxNzgzMTE0Njg2MDg5LCJpYXQiOjE3ODMwNzE0ODU1Mzd9.90ssBWqI9f45jzvRoLUCY90gcGzbMp_JCcYvaWhSZWQ&vercel-blob-signature=Xoq3WSTniX5V6w65QnJR2I9c8dxpJ3fOSt_4lJ-hJ3o" alt="Work 2" />
+          <div class="portfolio-footer">
+            <span class="label">Brand identity · Crypto</span>
+            <a class="cta" href="https://example.com/work-2" target="_blank">Open case</a>
+          </div>
+        </div>
+        <!-- Work 3 -->
+        <div class="portfolio-card" onclick="window.location.href='https://example.com/work-3';">
+          <img src="https://lynilystct6gegxb.private.blob.vercel-storage.com/26.1-01%20-%20Copy.png?vercel-blob-delegation=eyJzdG9yZUlkIjoic3RvcmVfbHluSUx5U3RjVDZnRUd4YiIsIm93bmVySWQiOiJ0ZWFtX2pCRlpVR21CcEZaZk1NR0xUdFI0MExOOSIsInBhdGhuYW1lIjoiKiIsIm9wZXJhdGlvbnMiOlsiZ2V0IiwiaGVhZCJdLCJ2YWxpZFVudGlsIjoxNzgzMTE0Nzk5MDA5LCJpYXQiOjE3ODMwNzE1OTgyODB9.ocSBtCbmuol0MCSX7pZSR033DuMFeWIuDB8vnNpgU28&vercel-blob-signature=_GO_OX6tkDbky45A_jvaQKRKCpTTcvmkk25ixBqN6KU" alt="Work 3" />
+          <div class="portfolio-footer">
+            <span class="label">Logo grid · Precision</span>
+            <a class="cta" href="https://example.com/work-3" target="_blank">Open case</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
 
-<div class="platform-card" onclick="window.open('https://app.towns.com/t/0x44c983f28f17dc4971cfdd1b3f553789f07d7ec7/','_blank')">
-<div class="platform-title">Towns protocol</div>
-<div class="platform-name">Start working at Towns</div>
-<div class="platform-desc">
-Collaboration with low-fee crypto payments, discussion groups, and feedback-based project monitoring.
-</div>
-<div class="platform-details">
-· Crypto payment with the lowest possible fee under one cent<br>
-· Monitoring and feedback system<br>
-· Discussion groups<br>
-· Vip Group for Customers<br>
-· Advantages of the TOWNS platform itself apart from the project such as: Crypto earnings from comments and all activities in all groups
-</div>
-<a class="platform-link" href="https://app.towns.com/t/0x44c983f28f17dc4971cfdd1b3f553789f07d7ec7/" target="_blank">Click to start collaborating on the TOWNS Platform →</a>
-</div>
+  <script>
+    // Mobile dropdown: click to toggle
+    const dropdowns = document.querySelectorAll(".dropdown");
+    dropdowns.forEach((dd) => {
+      const toggle = dd.querySelector(".dropdown-toggle");
+      const panel = dd.querySelector(".dropdown-panel");
 
-<div class="platform-card" onclick="window.open('https://laborx.com/customers/users/id286661?ref=286661','_blank')">
-<div class="platform-title">LaborX</div>
-<div class="platform-name">Start working at LaborX</div>
-<div class="platform-desc">
-A fully secure crypto freelance platform fully powered by blockchain technology.
-</div>
-<div class="platform-details">
-· Secure escrow payments<br>
-· No access to the paid amount of the project by the freelancer until the end of the work<br>
-· Only with the approval of the client himself, the freelancer is allowed to access the money<br>
-· Full site support<br>
-· Very high security with blockchain technologies in every work section by the site itself
-</div>
-<a class="platform-link" href="https://laborx.com/customers/users/id286661?ref=286661" target="_blank">Click to start collaborating on the LABORX Platform →</a>
-</div>
+      // Click behavior (mobile + desktop)
+      toggle.addEventListener("click", (e) => {
+        e.stopPropagation();
+        const isOpen = panel.classList.contains("open");
+        document.querySelectorAll(".dropdown-panel.open").forEach((p) => {
+          if (p !== panel) p.classList.remove("open");
+        });
+        if (!isOpen) panel.classList.add("open");
+        else panel.classList.remove("open");
+      });
+    });
 
-</div>
+    // Close on click outside (for mobile)
+    document.addEventListener("click", () => {
+      document.querySelectorAll(".dropdown-panel.open").forEach((p) => p.classList.remove("open"));
+    });
 
-<div class="collab-label">Collaboration packages</div>
+    // Scroll behavior for mobile: if title passes center, keep open
+    function handleScrollDropdowns() {
+      if (window.innerWidth > 900) return; // only mobile
+      dropdowns.forEach((dd) => {
+        const toggle = dd.querySelector(".dropdown-toggle");
+        const panel = dd.querySelector(".dropdown-panel");
+        const rect = toggle.getBoundingClientRect();
+        const center = window.innerHeight / 2;
+        if (rect.top < center) {
+          panel.classList.add("open");
+        }
+      });
+    }
 
-<div class="packages-row">
-
-    <div class="package-image">
-        <img src="https://github.com/SajedFreelancer/firstLogo-cta/blob/main/Copilot_20260703_005647.png?raw=true">
-    </div>
-
-    <div class="package-image">
-        <img src="https://github.com/SajedFreelancer/firstLogo-cta/blob/main/Copilot_20260703_005832.png?raw=true">
-    </div>
-
-    <div class="package-image">
-        <img src="https://github.com/SajedFreelancer/firstLogo-cta/blob/main/Copilot_20260703_010010.png?raw=true">
-    </div>
-</div>
-
-</div>
-
-
-</div>
-
-</div>
-
-</div>
-
-<div class="right-panel">
-
-<div class="profile-card">
-<div class="profile-top">
-<div class="profile-avatar">
-<img src="https://lynilystct6gegxb.private.blob.vercel-storage.com/kam%20photo%20(1).png">
-</div>
-<div class="profile-info">
-<div class="profile-name">My name</div>
-<div class="profile-role">Logo designer</div>
-<div class="profile-badge">Crafting Timeless Brands with Strategic Simplicit</div>
-</div>
-</div>
-
-<p class="profile-text">
-I focus on logo design and logo systems. My work is structured for clients who want clear packages, secure collaboration, and visual consistency across platforms.
-</p>
-
-<div class="social-row">
-<a class="social-link" href="https://example.com/behance" target="_blank">Behance</a>
-<a class="social-link" href="https://example.com/linkedin" target="_blank">LinkedIn</a>
-<a class="social-link" href="https://example.com/medium" target="_blank">Medium</a>
-</div>
-
-</div>
-
-<div class="works-card">
-<div class="works-title">Earning the Behance professional work medal :</div>
-
-<div class="works-grid">
-
-<div class="work-card" onclick="window.open('https://example.com/work-1','_blank')">
-<div class="work-image">
-<img src="https://github.com/SajedFreelancer/firstLogo-cta/blob/main/2.png?raw=true">
-</div>
-<div class="work-label">Force Shop</div>
-</div>
-
-<div class="work-card" onclick="window.open('https://example.com/work-2','_blank')">
-<div class="work-image">
-<img src="https://github.com/SajedFreelancer/firstLogo-cta/blob/main/Artboard%202.png?raw=true">
-</div>
-<div class="work-label">Brand identity crypto</div>
-</div>
-
-<div class="work-card" onclick="window.open('https://example.com/work-3','_blank')">
-<div class="work-image">
-<img src="https://github.com/SajedFreelancer/firstLogo-cta/blob/main/Artboard%203.png?raw=true">
-</div>
-<div class="work-label">Logo grid precision</div>
-</div>
-
-</div>
-</div>
-
-</div>
-
-</section>
-
-</div>
+    window.addEventListener("scroll", handleScrollDropdowns);
+  </script>
 </body>
 </html>
