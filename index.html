@@ -12,514 +12,766 @@
 
   
 <meta charset="UTF-8">
-<title>ScaleOps Logo Studio</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ScaleOps Web3 Logo Studio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    :root {
+      --bg: #02030a;
+      --panel: #070a16;
+      --panel-soft: #0b0f1f;
+      --accent-blue: #3bb4ff;
+      --accent-purple: #b86bff;
+      --accent-gold: #f6c453;
+      --accent-green: #4fd18b;
+      --accent-pink: #ff6fb5;
+      --text-main: #f5f7ff;
+      --text-muted: #9aa0b8;
+      --border-soft: rgba(255, 255, 255, 0.08);
+      --shadow-soft: 0 18px 40px rgba(0, 0, 0, 0.75);
+      --radius-lg: 20px;
+      --radius-md: 14px;
+      --radius-sm: 10px;
+      --transition-fast: 0.18s ease-out;
+    }
 
-<style>
-:root {
---panel: rgba(5, 7, 18, 0.92);
---panel-soft: rgba(7, 10, 22, 0.94);
---accent-blue: #3bb4ff;
---accent-purple: #b86bff;
---accent-gold: #f6c453;
---accent-green: #4fd18b;
---accent-pink: #ff6fb5;
---text-main: #f5f7ff;
---text-muted: #b0b5cc;
---border-soft: rgba(255, 255, 255, 0.12);
---shadow-soft: 0 18px 40px rgba(0, 0, 0, 0.85);
---radius-lg: 22px;
---radius-md: 14px;
---radius-sm: 10px;
---transition-fast: 0.18s ease-out;
-}
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-* {
-box-sizing: border-box;
-margin: 0;
-padding: 0;
-}
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+      background: radial-gradient(circle at top, #151a2b 0, #02030a 55%, #000000 100%);
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 24px 12px 40px;
+    }
 
-body {
-font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-color: var(--text-main);
-min-height: 100vh;
-display: flex;
-justify-content: center;
-align-items: flex-start;
-padding: 24px 12px 40px;
-background: linear-gradient(135deg, rgba(0,0,0,0.75), rgba(0,0,0,0.9)),
-url("https://lynilystct6gegxb.private.blob.vercel-storage.com/xiaomi-pad-7-pro-3840x2160-19801.jpg?vercel-blob-delegation=eyJzdG9yZUlkIjoic3RvcmVfbHluSUx5U3RjVDZnRUd4YiIsIm93bmVySWQiOiJ0ZWFtX2pCRlpVR21CcEZaZk1NR0xUdFI0MExOOSIsInBhdGhuYW1lIjoiKiIsIm9wZXJhdGlvbnMiOlsiZ2V0IiwiaGVhZCJdLCJ2YWxpZFVudGlsIjoxNzgzMTEzNzk4MTgxLCJpYXQiOjE3ODMwNzA1OTg4NTJ9.JP5uNLpJwcM0JQa3t-TOWjAXL1gqv-NgotLl5cLa4kg&vercel-blob-signature=q-ESipABu0MH27bTkua1LOjgvNmZ8skskpMHAOJbkCw") center/cover fixed;
-}
+    .page {
+      max-width: 1200px;
+      width: 100%;
+      background: radial-gradient(circle at 0% 0%, rgba(59, 180, 255, 0.18), transparent 55%),
+                  radial-gradient(circle at 100% 0%, rgba(184, 107, 255, 0.18), transparent 55%),
+                  linear-gradient(135deg, #050712, #02030a);
+      border-radius: 26px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.9);
+      padding: 22px 22px 24px;
+    }
 
-.page {
-max-width: 1200px;
-width: 100%;
-background: radial-gradient(circle at 0% 0%, rgba(59,180,255,0.18), transparent 55%),
-radial-gradient(circle at 100% 0%, rgba(184,107,255,0.18), transparent 55%),
-linear-gradient(135deg, rgba(5,7,18,0.96), rgba(2,3,10,0.96));
-border-radius: 26px;
-border: 1px solid rgba(255,255,255,0.12);
-box-shadow: 0 30px 80px rgba(0,0,0,0.95);
-padding: 22px;
-}
+    /* Top header */
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 18px;
+    }
 
-.header {
-display: flex;
-justify-content: flex-start;
-align-items: center;
-margin-bottom: 18px;
-}
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
 
-.brand-logo {
-width: 42px;
-height: 42px;
-border-radius: 50%;
-background: radial-gradient(circle at 30% 0%, #3bb4ff 0, #b86bff 40%, #05060a 100%);
-display: flex;
-align-items: center;
-justify-content: center;
-font-weight: 700;
-font-size: 22px;
-color: #fff;
-box-shadow: 0 0 26px rgba(59,180,255,0.7);
-}
+    .brand-logo {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 0%, #3bb4ff 0, #b86bff 40%, #05060a 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 20px;
+      color: #ffffff;
+      box-shadow: 0 0 26px rgba(59, 180, 255, 0.7);
+    }
 
-/* GRID */
-.main-grid {
-display: grid;
-grid-template-columns: minmax(0,1.4fr) minmax(0,1fr);
-gap: 20px;
-margin-bottom: 18px;
-}
+    .brand-text-main {
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
 
-@media(max-width:900px){
-.main-grid { grid-template-columns: 1fr; }
-}
+    .brand-text-sub {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
 
-/* LEFT PANEL */
-.left-panel {
-background: var(--panel-soft);
-border-radius: var(--radius-lg);
-border: 1px solid var(--border-soft);
-box-shadow: var(--shadow-soft);
-padding: 18px;
-}
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
 
-.left-title {
-font-size: 17px;
-font-weight: 700;
-margin-bottom: 6px;
-}
+    .header-pill {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(255, 255, 255, 0.02);
+      color: var(--accent-blue);
+    }
 
-.left-subtitle {
-font-size: 13px;
-color: var(--text-muted);
-margin-bottom: 14px;
-}
+    /* Main layout */
+    .main-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+      gap: 20px;
+      margin-bottom: 18px;
+    }
 
-.platform-row {
-display: grid;
-grid-template-columns: repeat(2,1fr);
-gap: 10px;
-margin-bottom: 14px;
-}
+    @media (max-width: 900px) {
+      .main-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
 
-@media(max-width:700px){
-.platform-row { grid-template-columns: 1fr; }
-}
+    /* Left column: platforms + packages */
+    .left-panel {
+      background: linear-gradient(135deg, rgba(7, 9, 18, 0.96), rgba(7, 9, 18, 0.9));
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-soft);
+      box-shadow: var(--shadow-soft);
+      padding: 18px 18px 16px;
+    }
 
-.platform-card {
-position: relative;
-border-radius: var(--radius-md);
-padding: 11px 12px;
-background: linear-gradient(135deg,#050712,#070a16);
-border: 1px solid rgba(255,255,255,0.14);
-box-shadow: 0 14px 30px rgba(0,0,0,0.8);
-cursor: pointer;
-overflow: hidden;
-transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
-}
+    .left-title {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
 
-.platform-card:hover {
-transform: translateY(-3px);
-box-shadow: 0 20px 46px rgba(0,0,0,0.9);
-border-color: rgba(184,107,255,0.7);
-}
+    .left-subtitle {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-bottom: 14px;
+    }
 
-.platform-title {
-font-size: 12px;
-text-transform: uppercase;
-letter-spacing: 0.12em;
-margin-bottom: 4px;
-color: var(--accent-blue);
-}
+    .platform-row {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      margin-bottom: 14px;
+    }
 
-.platform-name {
-font-size: 14px;
-font-weight: 600;
-margin-bottom: 4px;
-}
+    @media (max-width: 700px) {
+      .platform-row {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
 
-.platform-desc {
-font-size: 12px;
-color: var(--text-muted);
-}
+    .platform-card {
+      position: relative;
+      border-radius: var(--radius-md);
+      padding: 10px 11px;
+      background: radial-gradient(circle at 0% 0%, rgba(59, 180, 255, 0.18), transparent 70%),
+                  radial-gradient(circle at 100% 0%, rgba(184, 107, 255, 0.18), transparent 70%),
+                  linear-gradient(135deg, #050712, #070a16);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.8);
+      cursor: pointer;
+      overflow: hidden;
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
+    }
 
-.platform-details {
-margin-top: 8px;
-font-size: 12px;
-color: var(--text-main);
-opacity: 0;
-max-height: 0;
-overflow: hidden;
-transition: opacity var(--transition-fast), max-height var(--transition-fast);
-}
+    .platform-card::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background: radial-gradient(circle at 0% 0%, rgba(59, 180, 255, 0.18), transparent 60%);
+      opacity: 0;
+      transition: opacity var(--transition-fast);
+    }
 
-.platform-card:hover .platform-details {
-opacity: 1;
-max-height: 200px;
-}
+    .platform-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 20px 46px rgba(0, 0, 0, 0.9);
+      border-color: rgba(184, 107, 255, 0.7);
+    }
 
-.platform-link {
-font-size: 11px;
-text-transform: uppercase;
-letter-spacing: 0.12em;
-margin-top: 6px;
-color: var(--accent-purple);
-text-decoration: none;
-display: inline-block;
-}
+    .platform-card:hover::before {
+      opacity: 1;
+    }
 
-/* PACKAGES */
-.packages-row {
-display: grid;
-grid-template-columns: repeat(3,1fr);
-gap: 10px;
-}
+    .platform-title {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 4px;
+      color: var(--accent-blue);
+    }
 
-@media(max-width:900px){
-.packages-row { grid-template-columns: 1fr; }
-}
+    .platform-name {
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
 
-.package-card {
-border-radius: var(--radius-md);
-padding: 6px;
-background: linear-gradient(145deg,#050712,#0b0f1f);
-border: 1px solid rgba(255,255,255,0.14);
-box-shadow: 0 14px 30px rgba(0,0,0,0.85);
-cursor: pointer;
-overflow: hidden;
-transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
-}
+    .platform-desc {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
 
-.package-card:hover {
-transform: translateY(-3px);
-box-shadow: 0 20px 46px rgba(0,0,0,0.95);
-border-color: rgba(246,196,83,0.7);
-}
+    .platform-link {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-top: 6px;
+      color: var(--accent-purple);
+      text-decoration: none;
+      display: inline-block;
+    }
 
-.package-image img {
-width: 100%;
-border-radius: 12px;
-border: 1px solid rgba(255,255,255,0.18);
-}
+    /* Dropdown content (hover reveal) */
+    .platform-details {
+      margin-top: 8px;
+      font-size: 11px;
+      color: var(--text-main);
+      opacity: 0;
+      max-height: 0;
+      overflow: hidden;
+      transition: opacity var(--transition-fast), max-height var(--transition-fast);
+    }
 
-/* RIGHT PANEL */
-.right-panel {
-display: flex;
-flex-direction: column;
-gap: 12px;
-}
+    .platform-card:hover .platform-details {
+      opacity: 1;
+      max-height: 200px;
+    }
 
-.profile-card {
-background: var(--panel);
-border-radius: var(--radius-lg);
-border: 1px solid var(--border-soft);
-box-shadow: var(--shadow-soft);
-padding: 16px;
-}
+    /* Collaboration packages label */
+    .collab-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
 
-.profile-top {
-display: flex;
-align-items: center;
-gap: 12px;
-margin-bottom: 10px;
-}
+    /* NFT packages row */
+    .packages-row {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+    }
 
-.profile-avatar {
-width: 60px;
-height: 60px;
-border-radius: 999px;
-overflow: hidden;
-border: 1px solid rgba(255,255,255,0.18);
-box-shadow: 0 0 18px rgba(59,180,255,0.6);
-}
+    @media (max-width: 900px) {
+      .packages-row {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
 
-.profile-avatar img {
-width: 100%;
-height: 100%;
-object-fit: cover;
-}
+    .package-card {
+      border-radius: var(--radius-md);
+      padding: 10px 11px;
+      background: linear-gradient(145deg, #050712, #0b0f1f);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.8);
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
+    }
 
-.profile-name {
-font-size: 15px;
-font-weight: 600;
-}
+    .package-card::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background: radial-gradient(circle at 0% 0%, rgba(59, 180, 255, 0.18), transparent 60%);
+      opacity: 0;
+      transition: opacity var(--transition-fast);
+    }
 
-.profile-role {
-font-size: 12px;
-color: var(--text-muted);
-}
+    .package-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 20px 46px rgba(0, 0, 0, 0.9);
+      border-color: rgba(246, 196, 83, 0.7);
+    }
 
-.profile-badge {
-font-size: 11px;
-text-transform: uppercase;
-letter-spacing: 0.12em;
-color: var(--accent-gold);
-}
+    .package-card:hover::before {
+      opacity: 1;
+    }
 
-.profile-text {
-font-size: 12px;
-color: var(--text-muted);
-margin-bottom: 10px;
-}
+    .package-title {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      margin-bottom: 6px;
+      color: var(--accent-gold);
+    }
 
-.social-row {
-display: flex;
-flex-wrap: wrap;
-gap: 6px;
-margin-bottom: 6px;
-}
+    .package-list {
+      font-size: 11px;
+      color: var(--text-main);
+      margin-bottom: 6px;
+    }
 
-.social-link {
-font-size: 11px;
-text-transform: uppercase;
-letter-spacing: 0.12em;
-padding: 6px 9px;
-border-radius: 999px;
-border: 1px solid rgba(255,255,255,0.14);
-background: rgba(255,255,255,0.02);
-color: var(--text-main);
-text-decoration: none;
-transition: background var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast);
-}
+    .package-list li {
+      margin-bottom: 2px;
+    }
 
-.social-link:hover {
-background: rgba(255,255,255,0.06);
-border-color: rgba(59,180,255,0.7);
-transform: translateY(-1px);
-}
+    .package-price {
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 4px;
+      color: var(--accent-blue);
+    }
 
-.profile-medal {
-font-size: 11px;
-color: var(--accent-blue);
-text-transform: uppercase;
-letter-spacing: 0.12em;
-}
+    .package-tagline {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-muted);
+    }
 
-/* WORKS */
-.works-card {
-background: var(--panel);
-border-radius: var(--radius-lg);
-border: 1px solid var(--border-soft);
-box-shadow: var(--shadow-soft);
-padding: 12px;
-}
+    /* Right column: profile + works */
+    .right-panel {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
 
-.works-title {
-font-size: 12px;
-text-transform: uppercase;
-letter-spacing: 0.14em;
-color: var(--text-muted);
-margin-bottom: 8px;
-}
+    .profile-card {
+      background: linear-gradient(135deg, rgba(7, 9, 18, 0.96), rgba(7, 9, 18, 0.9));
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-soft);
+      box-shadow: var(--shadow-soft);
+      padding: 14px 14px 12px;
+    }
 
-.works-grid {
-display: grid;
-grid-template-columns: repeat(3,1fr);
-gap: 8px;
-}
+    .profile-top {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
 
-@media(max-width:900px){
-.works-grid { grid-template-columns: 1fr; }
-}
+    .profile-avatar {
+      width: 52px;
+      height: 52px;
+      border-radius: 999px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      box-shadow: 0 0 18px rgba(59, 180, 255, 0.6);
+      flex-shrink: 0;
+    }
 
-.work-card {
-border-radius: var(--radius-md);
-padding: 6px;
-background: linear-gradient(135deg,#050712,#0b0f1f);
-border: 1px solid rgba(255,255,255,0.16);
-box-shadow: 0 14px 30px rgba(0,0,0,0.85);
-cursor: pointer;
-transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
-}
+    .profile-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
 
-.work-card:hover {
-transform: translateY(-3px);
-box-shadow: 0 20px 46px rgba(0,0,0,0.95);
-border-color: rgba(59,180,255,0.8);
-}
+    .profile-info {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
 
-.work-image img {
-width: 100%;
-border-radius: 12px;
-border: 1px solid rgba(255,255,255,0.18);
-}
+    .profile-name {
+      font-size: 14px;
+      font-weight: 600;
+    }
 
-.work-label {
-font-size: 11px;
-text-transform: uppercase;
-letter-spacing: 0.12em;
-color: var(--text-main);
-}
+    .profile-role {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
 
-.work-sub {
-font-size: 11px;
-color: var(--text-muted);
-}
-</style>
+    .profile-badge {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--accent-gold);
+    }
+
+    .profile-text {
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+
+    .social-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 6px;
+    }
+
+    .social-link {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      padding: 6px 9px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(255, 255, 255, 0.02);
+      color: var(--text-main);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: background var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast);
+    }
+
+    .social-link:hover {
+      background: rgba(255, 255, 255, 0.06);
+      border-color: rgba(59, 180, 255, 0.7);
+      transform: translateY(-1px);
+    }
+
+    .profile-medal {
+      font-size: 10px;
+      color: var(--accent-blue);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    /* Works grid */
+    .works-card {
+      background: linear-gradient(135deg, rgba(7, 9, 18, 0.96), rgba(7, 9, 18, 0.9));
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-soft);
+      box-shadow: var(--shadow-soft);
+      padding: 12px 12px 10px;
+    }
+
+    .works-title {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+
+    .works-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    @media (max-width: 900px) {
+      .works-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .work-card {
+      position: relative;
+      border-radius: var(--radius-md);
+      padding: 6px;
+      background: radial-gradient(circle at 0% 0%, rgba(59, 180, 255, 0.18), transparent 70%),
+                  linear-gradient(135deg, #050712, #0b0f1f);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.85);
+      cursor: pointer;
+      overflow: hidden;
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
+    }
+
+    .work-card::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background: radial-gradient(circle at 0% 0%, rgba(184, 107, 255, 0.18), transparent 60%);
+      opacity: 0;
+      transition: opacity var(--transition-fast);
+    }
+
+    .work-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 20px 46px rgba(0, 0, 0, 0.95);
+      border-color: rgba(59, 180, 255, 0.8);
+    }
+
+    .work-card:hover::before {
+      opacity: 1;
+    }
+
+    .work-image {
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      margin-bottom: 6px;
+    }
+
+    .work-image img {
+      width: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    .work-label {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-main);
+    }
+
+    .work-sub {
+      font-size: 10px;
+      color: var(--text-muted);
+    }
+
+    /* Bottom CTA row */
+    .bottom-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 10px;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .bottom-left {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .bottom-title {
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .bottom-sub {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .bottom-right {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: none;
+      background: radial-gradient(circle at 0% 0%, #3bb4ff 0, #b86bff 40%, #05060a 100%);
+      color: #ffffff;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      cursor: pointer;
+      box-shadow: 0 0 24px rgba(184, 107, 255, 0.7);
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast), filter var(--transition-fast);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      filter: brightness(1.08);
+      box-shadow: 0 0 30px rgba(184, 107, 255, 0.9);
+    }
+
+    .btn-secondary {
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--border-soft);
+      background: rgba(255, 255, 255, 0.02);
+      color: var(--text-main);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      cursor: pointer;
+      transition: background var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.06);
+      border-color: rgba(255, 255, 255, 0.18);
+      transform: translateY(-1px);
+    }
+  </style>
 </head>
-
 <body>
-<div class="page">
+  <div class="page">
+    <!-- HEADER -->
+    <header class="header">
+      <div class="brand">
+        <div class="brand-logo">S</div>
+        <div>
+          <div class="brand-text-main">ScaleOps Web3 Logo Studio</div>
+          <div class="brand-text-sub">NFT-ready branding · Crypto-native collaboration</div>
+        </div>
+      </div>
+      <div class="header-right">
+        <div class="header-pill">Web3 work platform · Crypto freelance</div>
+      </div>
+    </header>
 
-<header class="header">
-<div class="brand-logo">S</div>
-</header>
+    <!-- MAIN GRID -->
+    <section class="main-grid">
+      <!-- LEFT: PLATFORMS + PACKAGES -->
+      <div class="left-panel">
+        <div class="left-title">Collaboration with Web3 work platforms</div>
+        <div class="left-subtitle">
+          I structure logo and brand projects around secure crypto-native platforms like Towns and LaborX, with clear collaboration packages and transparent workflows.
+        </div>
 
-<section class="main-grid">
+        <div class="platform-row">
+          <!-- Towns -->
+          <div class="platform-card" onclick="window.open('https://example.com/towns', '_blank')">
+            <div class="platform-title">Towns protocol</div>
+            <div class="platform-name">Start working at Towns</div>
+            <div class="platform-desc">
+              Crypto-native collaboration with ultra-low fees, discussion groups, and feedback-driven project monitoring.
+            </div>
+            <div class="platform-details">
+              • Crypto payments under one cent per transaction<br />
+              • Monitoring & feedback system for each project<br />
+              • Discussion groups and premium client circles<br />
+              • Platform-native earnings from comments and activity
+            </div>
+            <a class="platform-link" href="https://example.com/towns" target="_blank">Open Towns collaboration →</a>
+          </div>
 
-<div class="left-panel">
+          <!-- LaborX -->
+          <div class="platform-card" onclick="window.open('https://example.com/laborx', '_blank')">
+            <div class="platform-title">LaborX</div>
+            <div class="platform-name">Start working at LaborX</div>
+            <div class="platform-desc">
+              Secure escrow-based freelance platform with client-approved payouts and full project support.
+            </div>
+            <div class="platform-details">
+              • Secure escrow payments with locked funds<br />
+              • No freelancer access to funds until client approval<br />
+              • Client-approved payouts only<br />
+              • Full platform support and blockchain-grade security
+            </div>
+            <a class="platform-link" href="https://example.com/laborx" target="_blank">Open LaborX collaboration →</a>
+          </div>
+        </div>
 
-<div class="left-title">Collaboration with freelance work platforms</div>
-<div class="left-subtitle">
-I work through secure platforms like Towns and LaborX, using clear logo packages and transparent project structures.
-</div>
+        <div class="collab-label">NFT logo collaboration packages</div>
 
-<div class="platform-row">
+        <div class="packages-row">
+          <!-- BASIC -->
+          <div class="package-card" onclick="window.open('https://example.com/basic-package', '_blank')">
+            <div class="package-title">NFT basic logo package</div>
+            <ul class="package-list">
+              <li>3 concepts</li>
+              <li>Up to 10 revisions</li>
+              <li>High quality files</li>
+            </ul>
+            <div class="package-price">$299</div>
+            <div class="package-tagline">Bright harmony design</div>
+          </div>
 
-<div class="platform-card" onclick="window.open('https://example.com/towns','_blank')">
-<div class="platform-title">Towns protocol</div>
-<div class="platform-name">Start working at Towns</div>
-<div class="platform-desc">
-Collaboration with low-fee crypto payments, discussion groups, and feedback-based project monitoring.
-</div>
-<div class="platform-details">
-· Crypto payments with minimal fees<br>
-· Project monitoring and feedback groups<br>
-· Client-focused discussion circles<br>
-· Extra earnings from activity and comments
-</div>
-<a class="platform-link" href="https://example.com/towns" target="_blank">Open Towns collaboration →</a>
-</div>
+          <!-- PRO -->
+          <div class="package-card" onclick="window.open('https://example.com/pro-package', '_blank')">
+            <div class="package-title">NFT pro logo package</div>
+            <ul class="package-list">
+              <li>5 concepts</li>
+              <li>Up to 30 revisions</li>
+              <li>Priority support</li>
+            </ul>
+            <div class="package-price">$499</div>
+            <div class="package-tagline">Advanced logo design</div>
+          </div>
 
-<div class="platform-card" onclick="window.open('https://example.com/laborx','_blank')">
-<div class="platform-title">LaborX</div>
-<div class="platform-name">Start working at LaborX</div>
-<div class="platform-desc">
-Escrow-based freelance platform with client-approved payouts and full project support.
-</div>
-<div class="platform-details">
-· Secure escrow payments<br>
-· Funds released only after client approval<br>
-· Platform support for each project<br>
-· Strong security for every collaboration
-</div>
-<a class="platform-link" href="https://example.com/laborx" target="_blank">Open LaborX collaboration →</a>
-</div>
+          <!-- PREMIUM -->
+          <div class="package-card" onclick="window.open('https://example.com/premium-package', '_blank')">
+            <div class="package-title">NFT premium logo package</div>
+            <ul class="package-list">
+              <li>8 concepts</li>
+              <li>Unlimited revisions</li>
+              <li>Full project support</li>
+            </ul>
+            <div class="package-price">$999</div>
+            <div class="package-tagline">Elite branding design</div>
+          </div>
+        </div>
+      </div>
 
-</div>
+      <!-- RIGHT: PROFILE + WORKS -->
+      <div class="right-panel">
+        <!-- PROFILE -->
+        <div class="profile-card">
+          <div class="profile-top">
+            <div class="profile-avatar">
+              <img src="https://lynilystct6gegxb.private.blob.vercel-storage.com/kam%20photo%20(1).png?vercel-blob-delegation=eyJzdG9yZUlkIjoic3RvcmVfbHluSUx5U3RjVDZnRUd4YiIsIm93bmVySWQiOiJ0ZWFtX2pCRlpVR21CcEZaZk1NR0xUdFI0MExOOSIsInBhdGhuYW1lIjoiKiIsIm9wZXJhdGlvbnMiOlsiZ2V0IiwiaGVhZCJdLCJ2YWxpZFVudGlsIjoxNzgzMTE0NTAxNTk2LCJpYXQiOjE3ODMwNzEzMDEwNzl9._z1GVjPuZ7VcV7laxWG8izCHpgVt79Y5Va-pEaGsF5A&vercel-blob-signature=dxiIlbs7F0RusSrAvmQrODG1tONakl4-49xkv1JOqz0" alt="Profile" />
+            </div>
+            <div class="profile-info">
+              <div class="profile-name">Clash3</div>
+              <div class="profile-role">Logo & brand systems designer</div>
+              <div class="profile-badge">Web3-native · NFT-ready · Escrow-safe</div>
+            </div>
+          </div>
+          <p class="profile-text">
+            I design crypto-native logo systems and brand visuals tailored for Web3 platforms, Towns, and LaborX.
+            Every project is structured around secure payments, transparent collaboration, and long-term brand growth.
+          </p>
+          <div class="social-row">
+            <a class="social-link" href="https://example.com/behance" target="_blank">Behance</a>
+            <a class="social-link" href="https://example.com/linkedin" target="_blank">LinkedIn</a>
+            <a class="social-link" href="https://example.com/medium" target="_blank">Medium</a>
+          </div>
+          <div class="profile-medal">Earning the Behance professional work medal</div>
+        </div>
 
-<div class="collab-label">NFT logo packages</div>
+        <!-- WORKS -->
+        <div class="works-card">
+          <div class="works-title">Selected logo & brand work</div>
+          <div class="works-grid">
+            <!-- Work 1 -->
+            <div class="work-card" onclick="window.open('https://example.com/work-1', '_blank')">
+              <div class="work-image">
+                <img src="https://lynilystct6gegxb.private.blob.vercel-storage.com/2.png?vercel-blob-delegation=eyJzdG9yZUlkIjoic3RvcmVfbHluSUx5U3RjVDZnRUd4YiIsIm93bmVySWQiOiJ0ZWFtX2pCRlpVR21CcEZaZk1NR0xUdFI0MExOOSIsInBhdGhuYW1lIjoiKiIsIm9wZXJhdGlvbnMiOlsiZ2V0IiwiaGVhZCJdLCJ2YWxpZFVudGlsIjoxNzgzMTE0NTcxOTIwLCJpYXQiOjE3ODMwNzEzNzE4Nzh9.kGwSAL2Wktz8raHwLNWKpBiK7ouONyNCx2A6oq20HGc&vercel-blob-signature=dYmWT759DXx7Sr-5CF2BKvNfA0i2C7dJdZ9N2nl1lHE" alt="Work 1" />
+              </div>
+              <div class="work-label">Force Shop</div>
+              <div class="work-sub">Logo system · Web3 retail</div>
+            </div>
 
-<div class="packages-row">
+            <!-- Work 2 -->
+            <div class="work-card" onclick="window.open('https://example.com/work-2', '_blank')">
+              <div class="work-image">
+                <img src="https://lynilystct6gegxb.private.blob.vercel-storage.com/20.1-01%20-%20Copy.png?vercel-blob-delegation=eyJzdG9yZUlkIjoic3RvcmVfbHluSUx5U3RjVDZnRUd4YiIsIm93bmVySWQiOiJ0ZWFtX2pCRlpVR21CcEZaZk1NR0xUdFI0MExOOSIsInBhdGhuYW1lIjoiKiIsIm9wZXJhdGlvbnMiOlsiZ2V0IiwiaGVhZCJdLCJ2YWxpZFVudGlsIjoxNzgzMTE0Njg2MDg5LCJpYXQiOjE3ODMwNzE0ODU1Mzd9.90ssBWqI9f45jzvRoLUCY90gcGzbMp_JCcYvaWhSZWQ&vercel-blob-signature=Xoq3WSTniX5V6w65QnJR2I9c8dxpJ3fOSt_4lJ-hJ3o" alt="Work 2" />
+              </div>
+              <div class="work-label">Brand identity · Crypto</div>
+              <div class="work-sub">Profile-based logo · Community</div>
+            </div>
 
-<div class="package-card" onclick="window.open('https://example.com/basic-package','_blank')">
-<div class="package-image">
-<img src="https://lynilystct6gegxb.private.blob.vercel-storage.com/Copilot_20260703_005647.png">
-</div>
-</div>
+            <!-- Work 3 -->
+            <div class="work-card" onclick="window.open('https://example.com/work-3', '_blank')">
+              <div class="work-image">
+                <img src="https://lynilystct6gegxb.private.blob.vercel-storage.com/26.1-01%20-%20Copy.png?vercel-blob-delegation=eyJzdG9yZUlkIjoic3RvcmVfbHluSUx5U3RjVDZnRUd4YiIsIm93bmVySWQiOiJ0ZWFtX2pCRlpVR21CcEZaZk1NR0xUdFI0MExOOSIsInBhdGhuYW1lIjoiKiIsIm9wZXJhdGlvbnMiOlsiZ2V0IiwiaGVhZCJdLCJ2YWxpZFVudGlsIjoxNzgzMTE0Nzk5MDA5LCJpYXQiOjE3ODMwNzE1OTgyODB9.ocSBtCbmuol0MCSX7pZSR033DuMFeWIuDB8vnNpgU28&vercel-blob-signature=_GO_OX6tkDbky45A_jvaQKRKCpTTcvmkk25ixBqN6KU" alt="Work 3" />
+              </div>
+              <div class="work-label">Logo grid · Precision</div>
+              <div class="work-sub">Grid-based logo construction</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<div class="package-card" onclick="window.open('https://example.com/pro-package','_blank')">
-<div class="package-image">
-<img src="https://lynilystct6gegxb.private.blob.vercel-storage.com/Copilot_20260703_005832.png">
-</div>
-</div>
-
-<div class="package-card" onclick="window.open('https://example.com/premium-package','_blank')">
-<div class="package-image">
-<img src="https://lynilystct6gegxb.private.blob.vercel-storage.com/Copilot_20260703_010010.png">
-</div>
-</div>
-
-</div>
-
-</div>
-
-<div class="right-panel">
-
-<div class="profile-card">
-<div class="profile-top">
-<div class="profile-avatar">
-<img src="https://lynilystct6gegxb.private.blob.vercel-storage.com/kam%20photo%20(1).png">
-</div>
-<div class="profile-info">
-<div class="profile-name">Clash3</div>
-<div class="profile-role">Logo designer</div>
-<div class="profile-badge">NFT-ready · Freelance-friendly</div>
-</div>
-</div>
-
-<p class="profile-text">
-I focus on logo design and logo systems. My work is structured for clients who want clear packages, secure collaboration, and visual consistency across platforms.
-</p>
-
-<div class="social-row">
-<a class="social-link" href="https://example.com/behance" target="_blank">Behance</a>
-<a class="social-link" href="https://example.com/linkedin" target="_blank">LinkedIn</a>
-<a class="social-link" href="https://example.com/medium" target="_blank">Medium</a>
-</div>
-
-<div class="profile-medal">Earning the Behance professional work medal</div>
-</div>
-
-<div class="works-card">
-<div class="works-title">Selected logo work</div>
-
-<div class="works-grid">
-
-<div class="work-card" onclick="window.open('https://example.com/work-1','_blank')">
-<div class="work-image">
-<img src="https://lynilystct6gegxb.private.blob.vercel-storage.com/2.png">
-</div>
-<div class="work-label">Force Shop</div>
-<div class="work-sub">Logo system</div>
-</div>
-
-<div class="work-card" onclick="window.open('https://example.com/work-2','_blank')">
-<div class="work-image">
-<img src="https://lynilystct6gegxb.private.blob.vercel-storage.com/20.1-01%20-%20Copy.png">
-</div>
-<div class="work-label">Brand identity crypto</div>
-<div class="work-sub">Logo & profile</div>
-</div>
-
-<div class="work-card" onclick="window.open('https://example.com/work-3','_blank')">
-<div class="work-image">
-<img src="https://lynilystct6gegxb.private.blob.vercel-storage.com/26.1-01%20-%20Copy.png">
-</div>
-<div class="work-label">Logo grid precision</div>
-<div class="work-sub">Grid-based logo</div>
-</div>
-
-</div>
-</div>
-
-</div>
-
-</section>
-
-</div>
+    <!-- BOTTOM CTA -->
+    <section class="bottom-row">
+      <div class="bottom-left">
+        <div class="bottom-title">Advanced NFT logo packages for serious clients</div>
+        <div class="bottom-sub">
+          Secure escrow, crypto-native workflows, and Web3-ready visuals for Towns and LaborX collaborations.
+        </div>
+      </div>
+      <div class="bottom-right">
+        <button class="btn-primary" onclick="window.open('https://example.com/start-project', '_blank')">
+          Start a project
+        </button>
+        <button class="btn-secondary" onclick="window.open('https://example.com/full-portfolio', '_blank')">
+          View full portfolio
+        </button>
+      </div>
+    </section>
+  </div>
 </body>
 </html>
