@@ -12,7 +12,7 @@
 
   
 <meta charset="UTF-8">
-  <title>SA2-Collaboration-CTA</title>
+  <title>SA3-Collaboration-CTA</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
     :root {
@@ -249,6 +249,12 @@
         grid-template-columns: minmax(0, 1fr);
       }
     }
+    @media (max-width: 900px) {
+      .main-grid {
+        display: flex;
+        flex-direction: column-reverse;
+  }
+}
 
     .package-card {
       border-radius: var(--radius-md);
