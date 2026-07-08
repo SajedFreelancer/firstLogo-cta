@@ -11,7 +11,7 @@
 
   
   <meta charset="UTF-8">
-  <title>SA-Collaboration-CTA</title>
+  <title>SA2-Collaboration-CTA</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
     :root {
@@ -312,17 +312,12 @@
       overflow: visible;
       z-index: 3;
     }
-    .tree-wrapper {
-      position: fixed;
-      inset: 0;
-      z-index: 0;
-      pointer-events: none;
-    }
     .tree-container {
-      position: absolute;
+      position: fixed;
       right: 0;
-      top: 45%;
-      transform: translateY(-45%);
+      top: 40%;
+      transform: translate(-30px, -40%);
+      z-index: 2;
       pointer-events: none;
     }
     .cosmic-tree {
@@ -587,11 +582,6 @@
   </style>
 </head>
 <body>
-  <div class="tree-wrapper">
-    <div class="tree-container">
-      <img src="https://github.com/SajedFreelancer/SA-Collaboration-CTA/blob/main/Tree%20idea.png?raw=true" class="cosmic-tree">
-    </div>
-  </div>
   <div class="page">
     <section class="main-grid">
       <div class="left-panel">
@@ -645,6 +635,9 @@
         </div>
       </div>
       <div class="right-panel">
+        <div class="tree-container">
+          <img src="https://github.com/SajedFreelancer/SA-Collaboration-CTA/blob/main/Tree%20idea.png?raw=true" alt="cosmic-tree" class="cosmic-tree">
+        </div>
         <div class="right-panel-content">
           <div class="profile-card">
             <div class="profile-top">
