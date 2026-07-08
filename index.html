@@ -11,7 +11,7 @@
 
   
   <meta charset="UTF-8">
-  <title>SA4-Collaboration-CTA</title>
+  <title>SA1-Collaboration-CTA</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
     :root {
@@ -241,6 +241,24 @@
       backdrop-filter: blur(2px);
       position: relative;
       overflow: hidden;
+      cursor: pointer;
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
+    }
+    .package-card::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background: radial-gradient(circle at 0% 0%, rgba(59, 180, 255, 0.18), transparent 60%);
+      opacity: 0;
+      transition: opacity var(--transition-fast);
+    }
+    .package-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 20px 46px rgba(0, 0, 0, 0.9);
+      border-color: rgba(246, 196, 83, 0.7);
+    }
+    .package-card:hover::before {
+      opacity: 1;
     }
     .package-title {
       font-size: 11px;
@@ -299,7 +317,7 @@
       right: 0;
       top: 40%;
       transform: translate(-30px, -40%);
-      z-index: 2;
+      z-index: 100;
       pointer-events: none;
     }
     .cosmic-tree {
@@ -394,6 +412,11 @@
       font-weight: 500;
       text-shadow: 0 0 6px rgba(0,0,0,0.35);
     }
+    .social-link:hover {
+      background: rgba(255, 255, 255, 0.06);
+      border-color: rgba(59, 180, 255, 0.7);
+      transform: translateY(-1px);
+    }
     .profile-medal {
       font-size: 10px;
       color: var(--accent-blue);
@@ -437,6 +460,22 @@
       flex-direction: column;
       text-align: center;
       transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
+    }
+    .work-card::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background: radial-gradient(circle at 0% 0%, rgba(184, 107, 255, 0.18), transparent 60%);
+      opacity: 0;
+      transition: opacity var(--transition-fast);
+    }
+    .work-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 20px 46px rgba(0, 0, 0, 0.95);
+      border-color: rgba(59, 180, 255, 0.8);
+    }
+    .work-card:hover::before {
+      opacity: 1;
     }
     .work-image {
          width: 100%;
@@ -506,6 +545,11 @@
       box-shadow: 0 0 24px rgba(184, 107, 255, 0.7);
       transition: transform var(--transition-fast), box-shadow var(--transition-fast), filter var(--transition-fast);
     }
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      filter: brightness(1.08);
+      box-shadow: 0 0 30px rgba(184, 107, 255, 0.9);
+    }
     .btn-secondary {
       padding: 8px 12px;
       border-radius: 999px;
@@ -518,6 +562,27 @@
       cursor: pointer;
       transition: background var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast);
     }
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.06);
+      border-color: rgba(255, 255, 255, 0.18);
+      transform: translateY(-1px);
+    }
+    @media (hover: hover) {
+      .platform-card:hover .platform-details {
+          opacity: 1;
+          max-height: 500px;
+      }
+    }
+    @media (hover: none) {
+      .platform-details {
+      opacity: 1;
+      max-height: 500px;
+      }
+    }
+    .platform-wrapper {
+      position: relative;
+      z-index: 10;
+    }
   </style>
 </head>
 <body>
@@ -529,35 +594,39 @@
           I work through secure platforms like Towns and LaborX, using clear logo packages and transparent project structures.
         </div>
         <div class="platform-row">
-          <div class="platform-card" onclick="window.open('https://app.towns.com/t/0x44c983f28f17dc4971cfdd1b3f553789f07d7ec7/', '_blank')">
-            <div class="platform-title">Towns protocol</div>
-            <div class="platform-name">Start working at Towns</div>
-            <div class="platform-desc">
-              A true Web 3 platform, based on BASE blockchain, like Discord with more distinctive features.
+          <div class="platform-wrapper">
+            <div class="platform-row">
+              <div class="platform-card" onclick="window.open('https://app.towns.com/t/0x44c983f28f17dc4971cfdd1b3f553789f07d7ec7/', '_blank')">
+                <div class="platform-title">Towns protocol</div>
+                <div class="platform-name">Start working at Towns</div>
+                <div class="platform-desc">
+                  A true Web 3 platform, based on BASE blockchain, like Discord with more distinctive features.
+                </div>
+                <div class="platform-details">
+                  • Crypto payment with the lowest possible fee under one cent<br />
+                  • Monitoring and feedback system<br />
+                  • Discussion groups<br />
+                  • Vip Group for Customers<br />
+                  • Advantages of the TOWNS platform itself apart from the project such as: Crypto earnings from comments and all activities in all groups
+                </div>
+                <a class="platform-link" href="https://app.towns.com/t/0x44c983f28f17dc4971cfdd1b3f553789f07d7ec7" target="_blank">Click to start collaborating on the Towns Platform</a>
+              </div>
+              <div class="platform-card" onclick="window.open('https://laborx.com/customers/users/id286661?ref=286661'', '_blank')">
+                <div class="platform-title">LaborX</div>
+                <div class="platform-name">Start working at LaborX</div>
+                <div class="platform-desc">
+                  A fully secure crypto freelance platform fully powered by blockchain technology..
+                </div>
+                <div class="platform-details">
+                  • Secure escrow payments<br />
+                  • No access to the paid amount of the project by the freelancer until the end of the work<br />
+                  • Only with the approval of the client himself, the freelancer is allowed to access the money<br />
+                  • Full site support<br />
+                  • Very high security with blockchain technologies in every work section by the site itself
+                </div>
+                <a class="platform-link" href="https://laborx.com/customers/users/id286661?ref=286661" target="_blank">Click to start collaborating on the LABORX Platform </a>
+              </div>
             </div>
-            <div class="platform-details">
-              • Crypto payment with the lowest possible fee under one cent<br />
-              • Monitoring and feedback system<br />
-              • Discussion groups<br />
-              • Vip Group for Customers<br />
-              • Advantages of the TOWNS platform itself apart from the project such as: Crypto earnings from comments and all activities in all groups
-            </div>
-            <a class="platform-link" href="https://app.towns.com/t/0x44c983f28f17dc4971cfdd1b3f553789f07d7ec7" target="_blank">Click to start collaborating on the Towns Platform</a>
-          </div>
-          <div class="platform-card" onclick="window.open('https://laborx.com/customers/users/id286661?ref=286661'', '_blank')">
-            <div class="platform-title">LaborX</div>
-            <div class="platform-name">Start working at LaborX</div>
-            <div class="platform-desc">
-              A fully secure crypto freelance platform fully powered by blockchain technology..
-            </div>
-            <div class="platform-details">
-              • Secure escrow payments<br />
-              • No access to the paid amount of the project by the freelancer until the end of the work<br />
-              • Only with the approval of the client himself, the freelancer is allowed to access the money<br />
-              • Full site support<br />
-              • Very high security with blockchain technologies in every work section by the site itself
-            </div>
-            <a class="platform-link" href="https://laborx.com/customers/users/id286661?ref=286661" target="_blank">Click to start collaborating on the LABORX Platform </a>
           </div>
         </div>
         <div class="collab-label">Collaboration packages</div>
