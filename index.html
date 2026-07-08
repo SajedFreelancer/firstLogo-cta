@@ -11,7 +11,7 @@
 
   
   <meta charset="UTF-8">
-  <title>SA1-Collaboration-CTA</title>
+  <title>SA2-Collaboration-CTA</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
     :root {
@@ -213,6 +213,22 @@
     @media (max-width: 900px) {
       .packages-row {
         grid-template-columns: minmax(0, 1fr);
+      }
+    }
+    @media (max-width: 700px) {
+      .packages-row {
+          display: grid;
+          grid-template-columns: 1fr;
+          gap: 14px; 
+          margin-top: 12px;
+      }
+      .package-card {
+          margin: 0; 
+          padding: 12px;
+      }
+      .package-image img {
+          padding: 0;
+          margin: 0;
       }
     }
     .package-card {
@@ -559,22 +575,6 @@
       .platform-card:hover .platform-details {
           opacity: 0;
           max-height: 0;
-      }
-    }
-    @media (max-width: 700px) {
-    .packages-row {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 14px; 
-        margin-top: 12px;
-    }
-    .package-card {
-        margin: 0; 
-        padding: 12px;
-    }
-    .package-image img {
-        padding: 0;
-        margin: 0;
       }
     }
   </style>
