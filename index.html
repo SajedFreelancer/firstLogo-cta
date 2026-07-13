@@ -19,7 +19,7 @@
   <!-- End Google Tag Manager -->
   
   <meta charset="UTF-8">
-  <title>SA1-Collaboration-CTA</title>
+  <title>SA2-Collaboration-CTA</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
     :root {
@@ -568,6 +568,21 @@
     .work-sub {
       font-size: 10px;
       color: rgba(255, 255, 255, 0.85);
+    }
+    @media (max-width: 900px) {
+      .left-column {
+        display: flex;
+        flex-direction: column;
+      }
+      .work-steps-image { 
+        order: 1;
+      }
+      .platform-row { 
+        order: 2;
+      }
+      .packages-row { 
+        order: 3;
+      }
     }
     @media (hover: hover) {
       .platform-card:hover .platform-details {
