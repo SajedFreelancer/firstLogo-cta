@@ -19,7 +19,7 @@
   <!-- End Google Tag Manager -->
   
   <meta charset="UTF-8">
-  <title>SA-Collaboration-CTA</title>
+  <title>SA1-Collaboration-CTA</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
     :root {
@@ -701,7 +701,7 @@
       .left-panel .collab2-label { 
         order: 1;
       }
-      .left-panel .hex-card { 
+      .left-panel .process-hex-grid { 
         order: 2;
       }
       .left-panel .left-title { 
@@ -763,6 +763,25 @@
         flex-direction: column;
         gap: 14px;
         width: 100%;
+      }
+    }
+    @media (max-width: 768px) {
+      .process-hex-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        align-items: center;
+      }
+      .hex-row {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        width: 100%;
+      }
+      .hex-card {
+        width: 100%;
+        max-width: 320px;
+        margin: 0 auto;
       }
     }
     @media (max-width: 900px) {
