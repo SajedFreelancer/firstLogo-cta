@@ -19,7 +19,7 @@
   <!-- End Google Tag Manager -->
   
   <meta charset="UTF-8">
-  <title>SA-Collaboration-CTA</title>
+  <title>SA1-Collaboration-CTA</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" type="image/webp" href="favicon.webp">
   <link rel="icon" sizes="64x64" href="favicon.webp">
@@ -909,7 +909,18 @@
           </a>
           <a class="platform-card"
             href="https://app.towns.com/t/0x44c983f28f17dc4971cfdd1b3f553789f07d7ec7/"
-            target="_blank">
+              target="_blank"
+              onclick="
+                fetch('https://script.google.com/macros/s/AKfycbwrKctyl9JwaD-oP50Ex2q-_2S3nfYOWm8ABvpq4q2h4HNHbGU81fMv2YH9t5Tt5HuX/exec', {
+                  method: 'POST',
+                  body: JSON.stringify({
+                    link: 'towns',
+                    time: new Date().toISOString(),
+                    referrer: document.referrer,
+                    ua: navigator.userAgent
+                  })
+               });
+            ">
             <div class="platform-label">Second Platform</div>
             <div class="platform-title">
               <img src="https://github.com/SajedFreelancer/SA-Collaboration-CTA/blob/main/image/Towns-icone.webp?raw=true" alt="Towns icon" class="platform-icon">
