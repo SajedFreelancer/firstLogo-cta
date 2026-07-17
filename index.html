@@ -19,7 +19,7 @@
   <!-- End Google Tag Manager -->
   
   <meta charset="UTF-8">
-  <title>SA1-Collaboration-CTA</title>
+  <title>SA-Collaboration-CTA</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" type="image/webp" href="favicon.webp">
   <link rel="icon" sizes="64x64" href="favicon.webp">
@@ -887,6 +887,17 @@
           <a class="platform-card"
             href="https://discord.com/login"
             target="_blank">
+            onclick="
+                fetch('https://script.google.com/macros/s/AKfycbwrKctyl9JwaD-oP50Ex2q-_2S3nfYOWm8ABvpq4q2h4HNHbGU81fMv2YH9t5Tt5HuX/exec', {
+                  method: 'POST',
+                  body: JSON.stringify({
+                    link: 'Discord',
+                    time: new Date().toISOString(),
+                    referrer: document.referrer,
+                    ua: navigator.userAgent
+                  })
+               });
+            ">
             <div class="platform-label">First Platform</div>
             <div class="platform-title">
               <img src="https://github.com/SajedFreelancer/SA-Collaboration-CTA/blob/main/image/Discord-icone.webp?raw=true" alt="ِDiscord icon" class="platform-icon">
